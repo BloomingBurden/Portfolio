@@ -1,7 +1,8 @@
 //Screen's width
 $mobileW: 320px;
 $tableW: 768px;
-$desktopW: 1200px;
+$tdW: 1050px;
+$desktopW: 1440px;
 $viewportD: 1440;
 
 //color
@@ -9,7 +10,9 @@ $color-beige: #F2EFE6;
 
 // Base variable
 $accent: #ffffff;
+$fontweight: 300;
 $textcolor: #000000;
 $lineheight: 1.1;
-$fontsize: 18px;
+$fontsize: 1.125rem;
 $userfont: 'Raleway', sans-serif;
+$trans: 0.3s ease-in-out;

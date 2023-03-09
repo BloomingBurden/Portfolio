@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5vw;
+}
+
+.header__data {
+  margin: 0;
+  font-size: calcFluidFontSize(18, 28, 320, 1440);
+
+  @media (min-width: $desktopW) {
+    font-size: calc(1.75rem + 0.5vw);
+  }
+}

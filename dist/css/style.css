@@ -418,18 +418,6 @@ template {
   /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* raleway-700 - cyrillic_latin */
-
-@font-face {
-  font-display: swap;
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/raleway-v28-cyrillic_latin-700.woff2") format("woff2"), url("../fonts/raleway-v28-cyrillic_latin-700.woff") format("woff");
-  /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
 *,
 *::after,
 *::before {
@@ -478,12 +466,12 @@ body {
   height: 100%;
   width: 100%;
   font-family: "Raleway", sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.1;
   min-width: 320px;
   background-color: #F2EFE6;
   color: #000000;
-  font-weight: 400;
+  font-weight: 300;
   position: relative;
   overflow-x: hidden;
   word-break: break-word;
@@ -528,14 +516,102 @@ ul {
 }
 
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0 5vw;
 }
 
-.header__logo {
-  display: block;
+.header__data {
+  margin: 0;
+  font-size: calc( 0.0089285714 * 100vw + 15.1428571429px );
+}
+
+.logo {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 70%;
+          flex: 0 0 70%;
 }
 
 .logo img {
-  width: 37.5%;
+  width: 59.7%;
   max-width: 220px;
+}
+
+.preview__inner {
+  padding: 15vw 5vw;
+}
+
+.preview__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+  margin-bottom: 8vh;
+  font-size: 12vw;
+  line-height: 1;
+  text-transform: uppercase;
+  font-family: "Playfair Display", sans-serif;
+}
+
+.preview__piece--left {
+  margin-left: 40px;
+}
+
+.preview__subtitle {
+  font-size: calc( 0.0089285714 * 100vw + 15.1428571429px );
+  text-align: right;
+  margin: 0;
+  margin-bottom: 5vh;
+}
+
+.preview__subtitle a {
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.preview__subtitle a:hover,
+.preview__subtitle a:focus {
+  text-decoration: underline;
+}
+
+.preview__about {
+  display: block;
+  text-align: right;
+}
+
+@media (min-width: 450px) {
+  .preview__title {
+    font-size: 8vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .preview__inner {
+    padding: 10vw 5vw;
+  }
+
+  .preview__title {
+    font-size: 5vw;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header__data {
+    font-size: calc(1.75rem + 0.5vw);
+  }
+
+  .preview__subtitle {
+    font-size: calc(1.75rem + 0.5vw);
+  }
 }
