@@ -1,0 +1,28 @@
+@mixin adaptive($prop, $startMean, $endMean, $minWidth) {
+  @if $prop == 'margin-right' {
+    margin-right: calc(#{$startMean + px} + (#{$endMean - $startMean}) * ((100vw - #{$minWidth + px}) / (#{$viewportD} - 320)))
+  } @else if $prop == 'margin-left' {
+    margin-left: calc(#{$startMean + px} + (#{$endMean - $startMean}) * ((100vw - #{$minWidth + px}) / (#{$viewportD} - #{$minWidth})))
+  } @else if $prop == 'margin-top' {
+    margin-top: calc(#{$startMean + px} + (#{$endMean - $startMean}) * ((100vw - #{$minWidth + px}) / (#{$viewportD} - #{$minWidth})))
+  } @else if $prop == 'margin-bottom' {
+    margin-bottom: calc(#{$startMean + px} + (#{$endMean - $startMean}) * ((100vw - #{$minWidth + px}) / (#{$viewportD} - #{$minWidth})))
+  } 
+
+  @if $prop == 'padding-right' {
+    padding-right: calc(#{$startMean + px} + (#{$endMean - $startMean}) * ((100vw - #{$minWidth + px}) / (#{$viewportD} - #{$minWidth})))
+  } @else if $prop == 'padding-left' {
+    padding-left: calc(#{$startMean + px} + (#{$endMean - $startMean}) * ((100vw - #{$minWidth + px}) / (#{$viewportD} - #{$minWidth})))
+  } @else if $prop == 'padding-top' {
+    padding-top: calc(#{$startMean + px} + (#{$endMean - $startMean}) * ((100vw - #{$minWidth + px}) / (#{$viewportD} - #{$minWidth})))
+  } @else if $prop == 'padding-bottom' {
+    padding-bottom: calc(#{$startMean + px} + (#{$endMean - $startMean}) * ((100vw - #{$minWidth + px}) / (#{$viewportD} - #{$minWidth})))
+  } 
+}
+
+@function calcFluidFontSize($f-min, $f-max, $v-min, $v-max) {
+  $k: calc(($f-max - $f-min)/($v-max - $v-min));
+  $b: $f-min - $k * $v-min;
+  $b: $b * 1px;
+  @return calc( #{$k} * 100vw + #{$b} );
+}
