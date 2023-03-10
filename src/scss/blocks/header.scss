@@ -3,6 +3,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 5vw;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .header__data {
@@ -10,6 +15,6 @@
   font-size: calcFluidFontSize(18, 28, 320, 1440);
 
   @media (min-width: $desktopW) {
-    font-size: calc(1.75rem + 0.5vw);
+    font-size: calc(1.5rem + 0.5vw);
   }
 }

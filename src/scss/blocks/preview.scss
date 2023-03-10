@@ -1,43 +1,92 @@
+@keyframes titleMoveLeft {
+  from {
+    transform: translateX(70%) translateZ(0px);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateZ(0px);
+  }
+}
+
+@keyframes titleMoveRight {
+  from {
+    transform: translateX(-70%) translateZ(0px);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateZ(0px);
+  }
+}
+
 .preview__inner {
-  padding: 15vw 5vw;
+  padding: 25vmin 5vw;
 
   @media (min-width: $tableW) {
-    padding: 10vw 5vw;
+    padding: 20vmin 5vw;
   }
 }
 .preview__title {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
+  align-self: flex-start;
   margin: 0;
-  margin-bottom: 8vh;
-
-  font-size: 12vw;
+  margin-bottom: 8vmax;
+  
   line-height: 1;
+  font-weight: 400;
+  font-size: 15vw;
   text-transform: uppercase;
-  font-family:  'Playfair Display', sans-serif;
+  font-family:  'Oswald', sans-serif;
+  overflow: hidden;
 
   @media (min-width: 450px) {
-    font-size: 8vw;
+    font-size: calc(4rem + 0.5vw);
+  }
+}
+
+.preview__piece {
+  opacity: 0;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.34,.99,.73,1.32);
+  
+  &:nth-child(1) {
+    animation-delay: 0.5s;
   }
 
-  @media (min-width: $tableW) {
-    font-size: 5vw;
+  &:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+  &:nth-child(3) {
+    animation-delay: 1.5s;
+  }
+  &:nth-child(4) {
+    animation-delay: 2s;
   }
 }
-.preview__piece {
-}
+
 .preview__piece--left {
+  transform: translateX(70%) translateZ(0px);
+  animation-name: titleMoveLeft;
   margin-left: 40px;
 }
+
+.preview__piece--right {
+  transform: translateX(-70%) translateZ(0px);
+  animation-name: titleMoveRight;
+}
+
 .preview__subtitle {
   font-size: calcFluidFontSize(18, 28, 320, 1440);
   text-align: right;
 
   margin: 0;
-  margin-bottom: 5vh;
+  margin-bottom: 5vmax;
 
   @media (min-width: $desktopW) {
-    font-size: calc(1.75rem + 0.5vw);
+    font-size: calc(1.3rem + 0.5vw);
   }
 
   a {
@@ -53,4 +102,22 @@
 .preview__about {
   display: block;
   text-align: right;  
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  text-decoration: none;
+
+  @media (min-width: $tableW) {
+    font-size: calc(0.7rem + 0.5vw);
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
 }
