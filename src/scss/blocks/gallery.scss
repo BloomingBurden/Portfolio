@@ -31,6 +31,13 @@
     object-position: 50% 50%;
   }
 }
+
+.gallery__right,
+.gallery__left {
+  will-change: transform;
+  transform: translateY(0) translateZ(0px);
+}
+
 .gallery__right .gallery__img {
   padding-top: 120%;
 }

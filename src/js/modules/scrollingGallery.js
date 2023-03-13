@@ -3,12 +3,11 @@ export const scrollingGallery = () => {
     const leftBlock = gallery.querySelector('.gallery__left');
     const rightBlock = gallery.querySelector('.gallery__right');
 
-
     const getGap = () => {
         const leftElems = leftBlock.children;
         const rightElems = rightBlock.children;
-        const leftElemPos = leftElems[leftElems.length - 1].offsetHeight + leftElems[leftElems.length - 1].getBoundingClientRect().top;
-        const rightElemPos = rightElems[rightElems.length - 1].offsetHeight + rightElems[rightElems.length - 1].getBoundingClientRect().top;
+        const leftElemPos = leftElems[leftElems.length - 1].getBoundingClientRect().height + leftElems[leftElems.length - 1].getBoundingClientRect().top;
+        const rightElemPos = rightElems[rightElems.length - 1].getBoundingClientRect().height + rightElems[rightElems.length - 1].getBoundingClientRect().top;
         const gap = Math.abs(leftElemPos - rightElemPos);
         
         return leftElemPos > rightElemPos ? {elem: rightBlock, gap: gap} : {elem: leftBlock, gap: gap}
@@ -16,18 +15,22 @@ export const scrollingGallery = () => {
 
 
     let gap = getGap();
-    let step = (gap.elem.getBoundingClientRect().height - window.innerHeight) / gap.gap;
+    let windowHeight = window.innerHeight;
+    let galleryHeight = gallery.getBoundingClientRect().height;
+    let prevMeaningWidth = window.innerWidth;
 
     const startScroll = () => {
-        const currentstep = leftBlock.getBoundingClientRect().top;
+        windowHeight = window.innerHeight;
+        
+        const currentStep = gallery.getBoundingClientRect().top;
+        const step = (galleryHeight - windowHeight) / gap.gap
 
-        if (currentstep <= 0) {
-            gap.elem.style.transform = `translateY(${Math.abs(currentstep / step)}px) translateZ(0px)`;
-        } else {
-            gap.elem.style.transform = `translateY(${currentstep / step}px) translateZ(0px)`;
-        }
-
+        gap.elem.style.transform = `translateY(${Math.abs(currentStep / step)}px) translateZ(0px)`;
     };
+
+    const reset = () => {
+        gap.elem.style.transform = `translateY(${0}px) translateZ(0px)`;
+    }
 
     const onScrollGallery = (evt) => {
         const galleryPos = gallery.getBoundingClientRect().top;
@@ -35,13 +38,18 @@ export const scrollingGallery = () => {
         if (galleryPos <= 0) {
             startScroll();
         } else {
-            gap.elem.style.transform = `translateY(${0}px) translateZ(0px)`;
+            reset();
         }
     };
 
     window.addEventListener('scroll', onScrollGallery);
     window.addEventListener('resize', () => {
-        gap = getGap();
-        step = (gap.elem.getBoundingClientRect().height - window.innerHeight) / gap.gap;
-    });
+        if (window.innerWidth !== prevMeaningWidth) {
+            prevMeaningWidth = window.innerWidth;
+            reset();
+            gap = getGap();
+            windowHeight = window.innerHeight;
+            galleryHeight = gallery.getBoundingClientRect().height;
+        }
+    })
 };

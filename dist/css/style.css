@@ -764,6 +764,13 @@ ul {
      object-position: 50% 50%;
 }
 
+.gallery__right,
+.gallery__left {
+  will-change: transform;
+  -webkit-transform: translateY(0) translateZ(0px);
+          transform: translateY(0) translateZ(0px);
+}
+
 .gallery__right .gallery__img {
   padding-top: 120%;
 }
