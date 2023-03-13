@@ -21,10 +21,10 @@
 }
 
 .preview__inner {
-  padding: 25vmin 5vw;
+  padding: 100px 5vw;
 
   @media (min-width: $tableW) {
-    padding: 20vmin 5vw;
+    padding: 150px 5vw;
   }
 }
 .preview__title {
@@ -32,7 +32,7 @@
   flex-direction: column;
   align-self: flex-start;
   margin: 0;
-  margin-bottom: 8vmax;
+  margin-bottom: 10vmax;
   
   line-height: 1;
   font-weight: 400;
@@ -42,7 +42,7 @@
   overflow: hidden;
 
   @media (min-width: 450px) {
-    font-size: calc(4rem + 0.5vw);
+    font-size: calc(3rem + 0.5vw);
   }
 }
 
@@ -78,10 +78,14 @@
   animation-name: titleMoveRight;
 }
 
-.preview__subtitle {
-  font-size: calcFluidFontSize(18, 28, 320, 1440);
-  text-align: right;
+.preview__body {
+  padding-left: 20vw;
+  max-width: 500px;
+  margin-left: auto;
+}
 
+.preview__subtitle {
+  font-size: calcFluidFontSize(16, 26, 320, 1440);
   margin: 0;
   margin-bottom: 5vmax;
 
@@ -99,9 +103,9 @@
     }
   }
 }
+
 .preview__about {
   display: block;
-  text-align: right;  
   font-family: 'Oswald', sans-serif;
   font-weight: 500;
   text-transform: uppercase;

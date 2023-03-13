@@ -547,7 +547,7 @@ ul {
 
 .header__data {
   margin: 0;
-  font-size: calc( 0.0089285714 * 100vw + 15.1428571429px );
+  font-size: calc( 0.0089285714 * 100vw + 13.1428571429px );
 }
 
 .logo {
@@ -618,7 +618,7 @@ ul {
 }
 
 .preview__inner {
-  padding: 25vmin 5vw;
+  padding: 100px 5vw;
 }
 
 .preview__title {
@@ -632,7 +632,7 @@ ul {
   -ms-flex-item-align: start;
       align-self: flex-start;
   margin: 0;
-  margin-bottom: 8vmax;
+  margin-bottom: 10vmax;
   line-height: 1;
   font-weight: 400;
   font-size: 15vw;
@@ -686,9 +686,14 @@ ul {
           animation-name: titleMoveRight;
 }
 
+.preview__body {
+  padding-left: 20vw;
+  max-width: 500px;
+  margin-left: auto;
+}
+
 .preview__subtitle {
-  font-size: calc( 0.0089285714 * 100vw + 15.1428571429px );
-  text-align: right;
+  font-size: calc( 0.0089285714 * 100vw + 13.1428571429px );
   margin: 0;
   margin-bottom: 5vmax;
 }
@@ -705,7 +710,6 @@ ul {
 
 .preview__about {
   display: block;
-  text-align: right;
   font-family: "Oswald", sans-serif;
   font-weight: 500;
   text-transform: uppercase;
@@ -730,9 +734,17 @@ ul {
   gap: 15px;
 }
 
+.gallery__item {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.gallery__item:last-child {
+  margin-bottom: 0;
+}
+
 .gallery__img {
   display: block;
-  margin-bottom: 15px;
   position: relative;
 }
 
@@ -748,10 +760,6 @@ ul {
      object-position: 50% 50%;
 }
 
-.gallery__img:last-child {
-  margin-bottom: 0;
-}
-
 .gallery__right .gallery__img {
   padding-top: 120%;
 }
@@ -760,15 +768,34 @@ ul {
   padding-top: 140%;
 }
 
+.gallery__subtitle {
+  position: absolute;
+  width: 90%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 0;
+  font-size: calc( 0.0053571429 * 100vw + 10.2857142857px );
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.gallery__subtitle strong {
+  font-family: "Oswald";
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
 @media (min-width: 450px) {
   .preview__title {
-    font-size: calc(4rem + 0.5vw);
+    font-size: calc(3rem + 0.5vw);
   }
 }
 
 @media (min-width: 768px) {
   .preview__inner {
-    padding: 20vmin 5vw;
+    padding: 150px 5vw;
   }
 
   .preview__about {
