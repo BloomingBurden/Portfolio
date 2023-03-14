@@ -1,15 +1,24 @@
-const debounce = (func, ms) => {
+const throttling = (func, ms = 300) => {
     let timer = false;
 
-    return function (...arg) {
+    return (...arg) => {
         if (timer === true) {
             return;
         } 
         timer = true;
-        func(arg);
+        func(...arg);
         
         setTimeout(() => timer = false, ms);
     }
 }
 
-export { debounce }
+const debounce = (func, ms = 300) => {
+    let timer;
+
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => { func.apply(this, args); }, ms);
+    };
+}
+
+export { debounce, throttling }

@@ -73,3 +73,13 @@ ul {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+@media (min-width: $tableDesktopW) {
+  .index-body {
+  }
+
+  .index-body .wrapper {
+    display: flex;
+    
+  }
+}

@@ -47,6 +47,7 @@
 }
 
 .gallery__subtitle {
+  pointer-events: none;
   position: absolute;
   width: 90%;
   left: 50%;
@@ -61,5 +62,28 @@
     font-family: "Oswald";
     font-weight: 500;
     text-transform: uppercase;
+  }
+}
+
+@media (min-width: $tableDesktopW) {
+  .index-body {
+    .gallery {
+      flex: 0 0 50%;
+      order: -1;
+      padding-right: 35px;
+      background-color: #ffffff;
+    }
+
+    .gallery__inner {
+      gap: 35px;
+    }
+
+    .gallery__item {
+      margin-bottom: 35px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }

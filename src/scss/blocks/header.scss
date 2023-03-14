@@ -8,6 +8,10 @@
   top: 0;
   left: 0;
   width: 100%;
+
+  @media (min-width: $tableDesktopW) {
+    position: fixed;
+  }
 }
 
 .header__data {
@@ -15,6 +19,6 @@
   font-size: calcFluidFontSize(16, 26, 320, 1440);
 
   @media (min-width: $desktopW) {
-    font-size: calc(1.5rem + 0.5vw);
+    font-size: calc(1rem + 0.5vw);
   }
 }

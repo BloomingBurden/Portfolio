@@ -1,4 +1,17 @@
-export const scrollingGallery = () => {
+// Автоматическая прокрутка галереи
+let timerScrollAnimation;
+
+const onScrollWindow = () => {
+    window.scrollBy(0, 1);
+}
+
+if (window.innerWidth >= 1050) {
+    timerScrollAnimation = setInterval(() => {
+        onScrollWindow();
+    }, 30)
+}
+
+const scrollingGallery = () => {
     const gallery = document.querySelector('.gallery');
     const leftBlock = gallery.querySelector('.gallery__left');
     const rightBlock = gallery.querySelector('.gallery__right');
@@ -13,7 +26,6 @@ export const scrollingGallery = () => {
         return leftElemPos > rightElemPos ? {elem: rightBlock, gap: gap} : {elem: leftBlock, gap: gap}
     }
 
-
     let gap = getGap();
     let windowHeight = window.innerHeight;
     let galleryHeight = gallery.getBoundingClientRect().height;
@@ -22,10 +34,11 @@ export const scrollingGallery = () => {
     const startScroll = () => {
         windowHeight = window.innerHeight;
         
-        const currentStep = gallery.getBoundingClientRect().top;
+        const currentPos = gallery.getBoundingClientRect().top;
         const step = (galleryHeight - windowHeight) / gap.gap
 
-        gap.elem.style.transform = `translateY(${Math.abs(currentStep / step)}px) translateZ(0px)`;
+        gap.elem.style.transform = `translateY(${Math.abs(currentPos / step)}px) translateZ(0px)`;
+
     };
 
     const reset = () => {
@@ -53,3 +66,5 @@ export const scrollingGallery = () => {
         }
     })
 };
+
+export { scrollingGallery }
