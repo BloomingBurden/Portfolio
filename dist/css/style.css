@@ -382,27 +382,15 @@ template {
   display: none;
 }
 
-/* raleway-300 - cyrillic_latin */
+/* pt-sans-narrow-regular - cyrillic_latin */
 
 @font-face {
   font-display: swap;
   /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Raleway";
-  font-style: normal;
-  font-weight: 300;
-  src: url("../fonts/raleway-v28-cyrillic_latin-300.woff2") format("woff2"), url("../fonts/raleway-v28-cyrillic_latin-300.woff") format("woff");
-  /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* raleway-regular - cyrillic_latin */
-
-@font-face {
-  font-display: swap;
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Raleway";
+  font-family: "PT Sans Narrow";
   font-style: normal;
   font-weight: 400;
-  src: url("../fonts/raleway-v28-cyrillic_latin-regular.woff2") format("woff2"), url("../fonts/raleway-v28-cyrillic_latin-regular.woff") format("woff");
+  src: url("../fonts/pt-sans-narrow-v17-cyrillic_latin-regular.woff2") format("woff2"), url("../fonts/pt-sans-narrow-v17-cyrillic_latin-regular.woff") format("woff");
   /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
@@ -477,13 +465,13 @@ html {
 body {
   height: 100%;
   width: 100%;
-  font-family: "Raleway", sans-serif;
+  font-family: "PT Sans Narrow", sans-serif;
   font-size: 1.125rem;
   line-height: 1.1;
   min-width: 320px;
   background-color: #F2EFE6;
   color: #000000;
-  font-weight: 300;
+  font-weight: 400;
   position: relative;
   overflow-x: hidden;
   word-break: break-word;
@@ -693,19 +681,14 @@ ul {
 }
 
 .preview__subtitle {
-  font-size: calc( 0.0089285714 * 100vw + 13.1428571429px );
+  font-size: calc( 0.0089285714 * 100vw + 15.1428571429px );
   margin: 0;
   margin-bottom: 5vmax;
 }
 
-.preview__subtitle a {
-  font-weight: 400;
-  text-decoration: none;
-}
-
 .preview__subtitle a:hover,
 .preview__subtitle a:focus {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .preview__about {
@@ -788,12 +771,12 @@ ul {
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   bottom: 0;
-  font-size: calc( 0.0053571429 * 100vw + 10.2857142857px );
+  font-size: calc( 0.0035714286 * 100vw + 12.8571428571px );
   color: #ffffff;
-  font-weight: 400;
 }
 
 .gallery__subtitle strong {
+  font-size: calc( 0.0035714286 * 100vw + 10.8571428571px );
   font-family: "Oswald";
   font-weight: 500;
   text-transform: uppercase;
@@ -837,12 +820,21 @@ ul {
     position: fixed;
     width: 50%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     right: 0;
     bottom: 0;
     top: 0;
   }
 
   .index-body .preview__inner {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
     padding: 120px 2vw 80px 5vw;
   }
 

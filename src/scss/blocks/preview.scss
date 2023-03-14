@@ -89,7 +89,7 @@
 }
 
 .preview__subtitle {
-  font-size: calcFluidFontSize(16, 26, 320, 1440);
+  font-size: calcFluidFontSize(18, 28, 320, 1440);
   margin: 0;
   margin-bottom: 5vmax;
 
@@ -98,12 +98,10 @@
   }
 
   a {
-    font-weight: 400;
-    text-decoration: none;
 
     &:hover,
     &:focus {
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
 }
@@ -137,6 +135,8 @@
       position: fixed;
       width: 50%;
       height: 100%;
+      display: flex;
+      align-items: center;
 
       right: 0;
       bottom: 0;
@@ -144,6 +144,7 @@
     }
 
     .preview__inner {
+      flex: 0 0 100%;
       padding: 120px 2vw 80px 5vw;
     }
     
