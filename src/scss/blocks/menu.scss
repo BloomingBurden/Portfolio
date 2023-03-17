@@ -1,0 +1,133 @@
+.menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5vw;
+  height: 60vh;
+
+  background-color: #000000;
+  color: #ffffff;
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+
+.menu--closed {
+  transform: translateY(100%) translateZ(0);
+  visibility: hidden;
+  user-select: none;
+}
+
+.menu--opened {
+  transform: translateY(0) translateZ(0);
+  visibility: visible;
+  user-select: auto;
+}
+
+.menu__inner {
+  position: relative;
+}
+.menu__list {
+  display: inline-flex;
+  user-select: none;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(.46,.75,.58,.73);
+}
+
+.menu__item {
+  flex: 0 0 40vw;
+  margin-right: 20px;
+  max-width: 130px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &--current {
+    .menu__caption {
+      &::before {
+        margin-right: 5px;
+        width: 0.5em;
+        height: 0.5em;
+      }
+    }
+  }
+}
+
+.menu__link {
+  display: block;
+  text-decoration: none;
+  transition: $trans;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.02);
+
+    .menu__caption {
+      &::before {
+        margin-right: 5px;
+        width: 0.5em;
+        height: 0.5em;
+      }
+    }
+  }
+}
+
+.menu__caption {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: .8rem;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  position: relative;
+
+  @media (min-width: $tableW) {
+    font-size: calc(0.5rem + 0.5vw);
+  }
+
+  &::before {
+    content: '';
+    width: 0;
+    height: 0;
+    background-color: $color-dark-orange;
+    border-radius: 50%;
+    transition: $trans;
+  }
+}
+
+.menu__img {
+  position: relative;
+  border-radius: 7px;
+  overflow: hidden;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.menu__button {
+  cursor: pointer;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-family: "Oswald";
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+
+  background-color: $color-dark-orange;
+  box-shadow: 0 4px 4px rgba(0,0,0,0.2);
+
+  @media (min-width: $desktopW) {
+    width: 4vw;
+    height: 4vw;
+    font-size: calc(0.3rem + 0.5vw);
+  }
+}

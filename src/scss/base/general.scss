@@ -74,12 +74,14 @@ ul {
   overflow: hidden;
 }
 
-@media (min-width: $tableDesktopW) {
-  .index-body {
-  }
+.index-body .wrapper {
+  position: relative;
+  top: 0;
+  transition: 0.5s ease;
+}
 
+@media (min-width: $tableDesktopW) {
   .index-body .wrapper {
     display: flex;
-    
   }
 }

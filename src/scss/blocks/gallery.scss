@@ -5,7 +5,6 @@
 .gallery__inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
 }
 
 .gallery__item {
@@ -32,14 +31,22 @@
   }
 }
 
+.gallery__left {
+  margin-right: 15px;
+}
+
 .gallery__right,
 .gallery__left {
   will-change: transform;
-  transform: translateY(0) translateZ(0px);
+  transform: translateY(0) translateZ(0);
 }
 
 .gallery__right .gallery__img {
-  padding-top: 120%;
+  padding-top: 110%;
+}
+
+.gallery__right .gallery__item:nth-child(2n) .gallery__img{
+  padding-top: 130%;
 }
 
 .gallery__left .gallery__img {
@@ -74,8 +81,8 @@
       background-color: #ffffff;
     }
 
-    .gallery__inner {
-      gap: 35px;
+    .gallery__left {
+      margin-right: 35px;
     }
 
     .gallery__item {

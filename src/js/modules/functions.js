@@ -13,4 +13,44 @@ const isWebp = () => {
     });
 };
 
+const onLoadWindow = () => {
+    const leftTitle = document.querySelectorAll('.preview__piece--left');
+    const rightTitle = document.querySelectorAll('.preview__piece--right');
+
+    leftTitle.forEach(item => item.style.animationName = 'titleMoveLeft');
+    rightTitle.forEach(item => item.style.animationName = 'titleMoveRight');
+};
+
+const clickMenu = () => {
+    const button = document.querySelector('.menu__button');
+    const menu = document.querySelector('.menu');
+    const wrapper = document.querySelector('.wrapper');
+    const preview = document.querySelector('.preview');
+
+    button.addEventListener('click', (evt) => {
+        const target = evt.target.closest('.menu__button');
+
+        if (!target) return;
+
+        if (menu.classList.contains('menu--opened')) {
+            button.textContent = 'Меню';
+            preview.style.top = 0;
+            wrapper.style.top = 0;
+            menu.classList.remove('menu--opened');
+            menu.classList.add('menu--closed');
+        } else if (menu.classList.contains('menu--closed')) {
+            button.textContent = 'Закрыть';
+            preview.style.top = '-60vh';
+            wrapper.style.top = '-60vh';
+            menu.classList.remove('menu--closed');
+            menu.classList.add('menu--opened');
+        }
+    });
+};
+
+
+
+window.addEventListener('load', onLoadWindow);
+
+clickMenu();
 isWebp();

@@ -1,14 +1,14 @@
 // Автоматическая прокрутка галереи
 let timerScrollAnimation;
 
-const onScrollWindow = () => {
+const onScrollWindow = (where) => {
     window.scrollBy(0, 1);
 }
 
 if (window.innerWidth >= 1050) {
     timerScrollAnimation = setInterval(() => {
         onScrollWindow();
-    }, 30)
+    }, 25)
 }
 
 const scrollingGallery = () => {
