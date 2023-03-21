@@ -1,12 +1,23 @@
+import { throttling } from "./utils.js";
+
 const menu = document.querySelector('.menu');
 const menuList = document.querySelector('.menu__list');
 
-let widthList = Array.from(menuList.children).reduce((cur, item) => {
-    return cur + item.getBoundingClientRect().width + parseFloat(window.getComputedStyle(item).marginRight);
-}, 0);
 
+const getWidth = () => {
+    const MARGIN = 40;
 
-let current = 0;
+    let widthList = Array.from(menuList.children).reduce((cur, item) => {
+        return cur + item.getBoundingClientRect().width + parseFloat(window.getComputedStyle(item).marginRight);
+    }, 0);
+    
+    widthList -= window.innerWidth;
+    
+    return widthList + MARGIN;
+};
+
+let widthList = getWidth();
+let currentPosX = 0;
 
 const onMouseDown = (evt) => {
     let startX = evt.pageX;
@@ -14,20 +25,29 @@ const onMouseDown = (evt) => {
 
     const onMouseMove = (evt) => {
         const diff = startX - evt.pageX;
-        current += diff;
+        currentPosX += diff;
         startX = evt.pageX;
-        menuList.style.transform = `translateX(${current}px)`;
+
+        if (currentPosX > 0) currentPosX = 0;
+        if (Math.abs(currentPosX) >= widthList) currentPosX = -widthList;
+        
+        menuList.style.transform = `translateX(${currentPosX}px)`;
     };
 
     const onMouseUp = () => {
-        menu.removeEventListener('mousemove', onMouseMove);
+        menu.removeEventListener('pointermove', throttlingMouseMove);
         document.removeEventListener('pointerup', onMouseUp);
     }
 
+    const throttlingMouseMove = throttling(onMouseMove, 50);
+
     document.addEventListener('pointerup', onMouseUp);
     menu.addEventListener('pointerleave', onMouseUp);
-    menu.addEventListener('mousemove', onMouseMove);
+    menu.addEventListener('pointermove', throttlingMouseMove);
 };
 
 
 menu.addEventListener('pointerdown', onMouseDown);
+window.addEventListener('resize', () => {
+    widthList = getWidth();
+})

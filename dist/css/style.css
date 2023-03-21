@@ -823,14 +823,16 @@ ul {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 5vw;
   height: 60vh;
+  padding: 20px;
   background-color: #000000;
   color: #ffffff;
   overflow: hidden;
   -webkit-transition: 0.5s ease;
   -o-transition: 0.5s ease;
   transition: 0.5s ease;
+  -ms-touch-action: none;
+      touch-action: none;
 }
 
 .menu--closed {
@@ -877,7 +879,7 @@ ul {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 40vw;
           flex: 0 0 40vw;
-  margin-right: 20px;
+  margin-right: 4vw;
   max-width: 130px;
 }
 
@@ -942,6 +944,7 @@ ul {
   position: relative;
   border-radius: 7px;
   overflow: hidden;
+  max-width: 130px;
 }
 
 .menu__img img {
@@ -949,6 +952,8 @@ ul {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .menu__button {
@@ -974,6 +979,18 @@ ul {
 @media (min-width: 450px) {
   .preview__title {
     font-size: calc(3rem + 0.5vw);
+  }
+}
+
+@media (min-width: 500px) {
+  .menu__item {
+    margin-right: 3vw;
+    max-width: 300px;
+  }
+
+  .menu__img {
+    max-width: 300px;
+    height: 180px;
   }
 }
 
@@ -1080,6 +1097,18 @@ ul {
   .index-body .preview__title {
     font-size: calc(3.5rem + 0.5vw);
     margin-bottom: 7vmax;
+  }
+
+  .gallery__right .gallery__img {
+    padding-top: 100%;
+  }
+
+  .gallery__right .gallery__item:nth-child(2n) .gallery__img {
+    padding-top: 120%;
+  }
+
+  .menu__item {
+    margin-right: 2vw;
   }
 
   .menu__button {

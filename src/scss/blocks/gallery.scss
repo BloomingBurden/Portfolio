@@ -43,10 +43,18 @@
 
 .gallery__right .gallery__img {
   padding-top: 110%;
+
+  @media (min-width: $desktopW) {
+    padding-top: 100%;
+  }
 }
 
 .gallery__right .gallery__item:nth-child(2n) .gallery__img{
   padding-top: 130%;
+
+  @media (min-width: $desktopW) {
+    padding-top: 120%;
+  }
 }
 
 .gallery__left .gallery__img {
