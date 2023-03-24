@@ -34,12 +34,14 @@ const clickMenu = () => {
 
         if (menu.classList.contains('menu--opened')) {
             button.textContent = 'Меню';
+            button.removeAttribute('style');
             preview.style.top = 0;
             wrapper.style.top = 0;
             menu.classList.remove('menu--opened');
             menu.classList.add('menu--closed');
         } else if (menu.classList.contains('menu--closed')) {
             button.textContent = 'Закрыть';
+            button.style.background = 'blue';
             preview.style.top = '-60vh';
             wrapper.style.top = '-60vh';
             menu.classList.remove('menu--closed');

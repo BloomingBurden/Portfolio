@@ -138,6 +138,7 @@
   text-transform: uppercase;
   font-weight: 500;
   font-size: 12px;
+  transition: $trans;
 
   background-color: $color-dark-orange;
   box-shadow: 0 4px 4px rgba(0,0,0,0.2);

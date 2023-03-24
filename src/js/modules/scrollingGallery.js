@@ -1,31 +1,38 @@
 import { throttling } from "./utils.js";
 
-// Автоматическая прокрутка галереи
-let timerScrollAnimation;
-
-const onScrollWindow = (where) => {
+const onScrollWindow = () => {
     window.scrollBy(0, 1);
 }
 
 if (window.innerWidth >= 1050) {
-    timerScrollAnimation = setInterval(() => {
+    setInterval(() => {
         onScrollWindow();
     }, 30)
 }
 
 const scrollingGallery = () => {
     const gallery = document.querySelector('.gallery');
-    const leftBlock = gallery.querySelector('.gallery__left');
-    const rightBlock = gallery.querySelector('.gallery__right');
+    const bigColumn = gallery.querySelectorAll('.gallery__big');
+    const smallColumn = gallery.querySelectorAll('.gallery__small');
 
     const getGap = () => {
-        const leftElems = leftBlock.children;
-        const rightElems = rightBlock.children;
-        const leftElemPos = leftElems[leftElems.length - 1].getBoundingClientRect().height + leftElems[leftElems.length - 1].getBoundingClientRect().top;
-        const rightElemPos = rightElems[rightElems.length - 1].getBoundingClientRect().height + rightElems[rightElems.length - 1].getBoundingClientRect().top;
-        const gap = Math.abs(leftElemPos - rightElemPos);
-        
-        return leftElemPos > rightElemPos ? {elem: rightBlock, gap: gap} : {elem: leftBlock, gap: gap}
+        let result = {};
+
+        for (let i = 0; i < bigColumn.length; i++) {
+            const leftElems = bigColumn[i].children;
+            const rightElems = smallColumn[i].children;
+            const leftElemPos = leftElems[leftElems.length - 1].getBoundingClientRect().height + leftElems[leftElems.length - 1].getBoundingClientRect().top;
+            const rightElemPos = rightElems[rightElems.length - 1].getBoundingClientRect().height + rightElems[rightElems.length - 1].getBoundingClientRect().top;
+            const gap = Math.abs(leftElemPos - rightElemPos);
+
+            if (leftElemPos > rightElemPos) {
+                result[`elem${i}`] = { elem: smallColumn[i], gap: gap };
+            } else {
+                result[`elem${i}`] = { elem: bigColumn[i], gap: gap };
+            }
+        }
+
+        return result;
     }
 
     let gap = getGap();
@@ -33,37 +40,51 @@ const scrollingGallery = () => {
     let galleryHeight = gallery.getBoundingClientRect().height;
     let prevMeaningWidth = window.innerWidth;
 
-    const startScroll = () => {
+    const startScroll = (item,  index) => {
         windowHeight = window.innerHeight;
+        galleryHeight = item.elem.getBoundingClientRect().height;
+        let currentPos = bigColumn[index].getBoundingClientRect().top;
+
+        let step = currentPos / ((galleryHeight - windowHeight) / item.gap);
         
-        const currentPos = gallery.getBoundingClientRect().top;
-        const step = (galleryHeight - windowHeight) / gap.gap
-
-        gap.elem.style.transform = `translateY(${Math.abs(currentPos / step)}px) translateZ(0px)`;
-
+        if (Math.abs(step) >= item.gap) {
+            step = item.gap;
+        }
+        
+        item.elem.style.transform = `translateY(${Math.abs(step)}px) translateZ(0px)`;
     };
 
-    const reset = () => {
-        gap.elem.style.transform = `translateY(${0}px) translateZ(0px)`;
+    const reset = (item) => {
+        item.style.transform = `translateY(${0}px) translateZ(0px)`;
     }
 
-    const onScrollGallery = (evt) => {
-        const galleryPos = gallery.getBoundingClientRect().top;
+    const onScrollGallery = () => {
+        let index = 0;
 
-        if (galleryPos <= 0) {
-            startScroll();
-        } else {
-            reset();
+        for (let key in gap) {
+            const galleryPos = gap[key].elem.getBoundingClientRect().top;
+
+            if (galleryPos <= 0) {
+                startScroll(gap[key], index);
+            } else {
+                reset(gap[key].elem);
+            }
+
+            index++;
         }
     };
 
-    const throttlingScrollGallery = throttling(onScrollGallery, 10);
+
+    const TIMING = 10;
+    const throttlingScrollGallery = throttling(onScrollGallery, TIMING);
 
     window.addEventListener('scroll', throttlingScrollGallery);
     window.addEventListener('resize', () => {
         if (window.innerWidth !== prevMeaningWidth) {
             prevMeaningWidth = window.innerWidth;
-            reset();
+            for (let key in gap) {
+                reset(gap[key].elem);
+            }
             gap = getGap();
             windowHeight = window.innerHeight;
             galleryHeight = gallery.getBoundingClientRect().height;
