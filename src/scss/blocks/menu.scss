@@ -1,5 +1,6 @@
 .menu {
   position: fixed;
+  z-index: 29;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -11,18 +12,17 @@
   overflow: hidden;
   transition: 0.5s ease;
   touch-action: none;
+  user-select: none;
 }
 
 .menu--closed {
   transform: translateY(100%) translateZ(0);
   visibility: hidden;
-  user-select: none;
 }
 
 .menu--opened {
   transform: translateY(0) translateZ(0);
   visibility: visible;
-  user-select: auto;
 }
 
 .menu__inner {
@@ -30,7 +30,6 @@
 }
 .menu__list {
   display: inline-flex;
-  user-select: none;
   transition-duration: 0.5s;
   transition-timing-function: cubic-bezier(.46,.75,.58,.73);
 }
@@ -127,6 +126,7 @@
 
 .menu__button {
   cursor: pointer;
+  z-index: 30;
   position: fixed;
   bottom: 30px;
   left: 50%;
@@ -146,5 +146,24 @@
     width: 4vw;
     height: 4vw;
     font-size: calc(0.3rem + 0.5vw);
+  }
+}
+
+.no-touch {
+  .menu__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .menu__item {
+    max-width: 100px;
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+
+  .menu__img {
+    height: 100px;
   }
 }

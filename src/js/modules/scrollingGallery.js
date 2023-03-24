@@ -1,3 +1,5 @@
+import { throttling } from "./utils.js";
+
 // Автоматическая прокрутка галереи
 let timerScrollAnimation;
 
@@ -8,7 +10,7 @@ const onScrollWindow = (where) => {
 if (window.innerWidth >= 1050) {
     timerScrollAnimation = setInterval(() => {
         onScrollWindow();
-    }, 25)
+    }, 30)
 }
 
 const scrollingGallery = () => {
@@ -55,7 +57,9 @@ const scrollingGallery = () => {
         }
     };
 
-    window.addEventListener('scroll', onScrollGallery);
+    const throttlingScrollGallery = throttling(onScrollGallery, 10);
+
+    window.addEventListener('scroll', throttlingScrollGallery);
     window.addEventListener('resize', () => {
         if (window.innerWidth !== prevMeaningWidth) {
             prevMeaningWidth = window.innerWidth;

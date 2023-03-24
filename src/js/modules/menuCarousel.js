@@ -3,7 +3,6 @@ import { throttling } from "./utils.js";
 const menu = document.querySelector('.menu');
 const menuList = document.querySelector('.menu__list');
 
-
 const getWidth = () => {
     const MARGIN = 40;
 
@@ -21,7 +20,7 @@ let currentPosX = 0;
 
 const onMouseDown = (evt) => {
     let startX = evt.pageX;
-    evt.target.ondragstart = () => false;
+    menu.ondragstart = () => false;
 
     const onMouseMove = (evt) => {
         const diff = startX - evt.pageX;
@@ -47,7 +46,12 @@ const onMouseDown = (evt) => {
 };
 
 
-menu.addEventListener('pointerdown', onMouseDown);
+if (CSS.supports('touch-action', 'none')) {
+    menu.addEventListener('pointerdown', onMouseDown);
+} else {
+    menu.classList.add('no-touch');
+}
+
 window.addEventListener('resize', () => {
     widthList = getWidth();
 })
