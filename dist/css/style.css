@@ -516,7 +516,7 @@ ul {
   overflow: hidden;
 }
 
-.index-body .wrapper {
+.wrapper {
   position: relative;
   top: 0;
   -webkit-transition: 0.5s ease;
@@ -997,6 +997,10 @@ ul {
   height: 100px;
 }
 
+.works-page .gallery__big--padding {
+  padding-bottom: 15px;
+}
+
 @media (min-width: 450px) {
   .preview__title {
     font-size: calc(3rem + 0.5vw);
@@ -1030,6 +1034,19 @@ ul {
 
   .menu__caption {
     font-size: calc(0.5rem + 0.5vw);
+  }
+
+  .works-page .gallery__inner {
+    -ms-grid-columns: (1fr)[4];
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .works-page .gallery__big--padding {
+    padding-bottom: 0;
+  }
+
+  .works-page .gallery__small--margin {
+    margin-right: 15px;
   }
 }
 
