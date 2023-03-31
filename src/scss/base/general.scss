@@ -23,8 +23,7 @@ html {
 }
 
 body {
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
   font-family: $userfont;
 	font-size: $fontsize;
 	line-height: $lineheight;

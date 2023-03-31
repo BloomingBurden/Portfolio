@@ -5,14 +5,14 @@
     }
   }
   
-  .gallery__big--padding {
+  .gallery__one--padding {
     padding-bottom: 15px;
     @media (min-width: $tableW) {
       padding-bottom: 0;
     }
   }
 
-  .gallery__small--margin {
+  .gallery__two--margin {
     @media (min-width: $tableW) {
       margin-right: 15px;
     }
