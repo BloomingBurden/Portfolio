@@ -26,7 +26,6 @@ const getData = () => {
             'elem': current,
             'height': height,
             'gap': gap,
-            'top': 0,
         };
     }
 
@@ -34,16 +33,6 @@ const getData = () => {
 }
 
 let data = getData();
-
-const animationScroll = () => {
-    for (let key in data) {
-        data[key].elem.style.transform = `translateY(${data[key].top}px) translateZ(0px)`;
-    }
-
-    requestAnimationFrame(animationScroll);
-}
-
-animationScroll();
 
 
 const onScrollGallery = (evt) => {
@@ -54,8 +43,9 @@ const onScrollGallery = (evt) => {
     for (let key in data) {
         const currentPos = data[key].gap / (gallery.getBoundingClientRect().height - window.innerHeight);
     
-        data[key].top = -currentPos * galleryPos;
+        data[key].elem.style.transform = `translateY(${-currentPos * galleryPos}px)`;
     }
+
 
 };
 
