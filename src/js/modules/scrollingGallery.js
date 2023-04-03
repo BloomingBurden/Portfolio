@@ -12,6 +12,38 @@ if (window.innerWidth >= 1050) {
     }, 30)
 }
 
+let firstTempArray = [];
+let secondTempArray = [];
+let galleryChange = false;
+
+const changeColumnGallery = () => {
+    const firstColumn = document.querySelectorAll('.gallery__one');
+    const secondColumn = document.querySelectorAll('.gallery__two');
+
+    if (window.innerWidth <= 768) {
+
+        if (galleryChange) return;
+
+        if (firstColumn.length >= 2 || secondColumn.length >= 2) {
+            firstTempArray = Array.from(firstColumn[1].children);
+            secondTempArray = Array.from(secondColumn[1].children);
+            firstColumn[0].append(...firstTempArray);
+            secondColumn[0].append(...secondTempArray);
+            galleryChange = true;
+        }
+    } else {
+        if (!galleryChange) return;
+
+        if (firstColumn[1].children.length === 0 || secondColumn[1].children.length === 0) {
+            firstColumn[1].append(...firstTempArray);
+            secondColumn[1].append(...secondTempArray);
+            galleryChange = false;
+        }
+    }
+}
+
+changeColumnGallery();
+
 const getData = () => {
     let data = {};
 
@@ -38,10 +70,12 @@ let data = getData();
 const onScrollGallery = (evt) => {
     const galleryPos = gallery.getBoundingClientRect().top;
     
-    if (galleryPos >= 0) return;
-
     for (let key in data) {
-        const currentPos = data[key].gap / (gallery.getBoundingClientRect().height - window.innerHeight);
+        let currentPos = data[key].gap / (gallery.getBoundingClientRect().height - window.innerHeight);
+
+        if (galleryPos >= 0) {
+            currentPos = 0;
+        };
     
         data[key].elem.style.transform = `translateY(${-currentPos * galleryPos}px)`;
     }
@@ -49,8 +83,14 @@ const onScrollGallery = (evt) => {
 
 };
 
+const resetScroll = () => {
+    changeColumnGallery();
+    data = getData();
+}
+
 const scrollingGallery = () => {
     window.addEventListener('scroll', onScrollGallery);
+    window.addEventListener('resize', resetScroll);
 };
 
 export { scrollingGallery }
