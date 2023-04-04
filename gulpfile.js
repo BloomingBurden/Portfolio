@@ -19,6 +19,7 @@ import { server } from './gulp/tasks/server.js';
 import { scss } from './gulp/tasks/scss.js';
 import { js } from './gulp/tasks/js.js';
 import { images } from './gulp/tasks/images.js';
+import { video } from './gulp/tasks/video.js';
 import { fonts } from './gulp/tasks/fonts.js';
 import { svgSprite } from './gulp/tasks/svgsprite.js';
 
@@ -33,7 +34,7 @@ const watcher = () => {
 
 
 
-const mainTasks = gulp.parallel(copy, html, scss, js, images, fonts, svgSprite);
+const mainTasks = gulp.parallel(copy, html, scss, js, images, video, fonts, svgSprite);
 
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 

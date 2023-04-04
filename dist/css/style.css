@@ -1000,6 +1000,82 @@ ul {
   padding-bottom: 15px;
 }
 
+.popup {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 40;
+  background-color: #F2EFE6;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.popup__main,
+.popup__header,
+.popup__footer {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.popup__preview {
+  position: absolute;
+  z-index: 41;
+  bottom: 20px;
+  left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.popup__body {
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.popup__img {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.popup__img:nth-child(1) {
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+}
+
+.popup__img:nth-child(2) {
+  -ms-flex-preferred-size: 35%;
+      flex-basis: 35%;
+}
+
+.popup__img:nth-child(3) {
+  -ms-flex-preferred-size: 45%;
+      flex-basis: 45%;
+}
+
+.popup__img:hover,
+.popup__img:focus {
+  -webkit-transform: scale(1.02);
+      -ms-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
 @media (min-width: 450px) {
   .preview__title {
     font-size: calc(3rem + 0.5vw);
