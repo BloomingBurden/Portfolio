@@ -17,6 +17,7 @@
 .header__data {
   margin: 0;
   font-size: calcFluidFontSize(16, 26, 320, 1440);
+  font-family: $ptSans;
 
   @media (min-width: $desktopW) {
     font-size: calc(1rem + 0.5vw);

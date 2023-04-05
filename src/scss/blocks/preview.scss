@@ -42,7 +42,7 @@
   font-weight: 400;
   font-size: 15vw;
   text-transform: uppercase;
-  font-family:  'Oswald', sans-serif;
+  font-family:  $oswald;
   overflow: hidden;
 
   @media (min-width: 450px) {
@@ -81,17 +81,17 @@
 }
 
 .preview__body {
-  padding-left: 23vw;
+  padding-left: 17vw;
   max-width: 500px;
   margin-left: auto;
 
   @media (min-width: $tableW) {
-    padding-left: 20vw;
+    padding-left: 10vw;
   }
 }
 
 .preview__subtitle {
-  font-size: calcFluidFontSize(18, 28, 320, 1440);
+  font-size: calcFluidFontSize(16, 24, 320, 1440);
   margin: 0;
   margin-bottom: 5vmax;
 
@@ -112,7 +112,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  font-family: 'Oswald', sans-serif;
+  font-family: $oswald;
   font-weight: 500;
   text-transform: uppercase;
   font-size: 0.8rem;
@@ -129,7 +129,6 @@
     background-color: yellow;
     border-radius: 50%;
     transition: $trans;
-
   }
 
   &:hover,

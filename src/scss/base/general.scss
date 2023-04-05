@@ -29,12 +29,19 @@ body {
 	line-height: $lineheight;
 	min-width: $mobileW;
 
-  background-color: $color-beige;
 	color: $textcolor;
   font-weight: $fontweight;
 	position: relative;
 	overflow-x: hidden;
   word-break: break-word;
+}
+
+.index-body {
+  background-color: $color-beige
+}
+
+.works-page {
+  background-color: #ffffff;
 }
 
 a {

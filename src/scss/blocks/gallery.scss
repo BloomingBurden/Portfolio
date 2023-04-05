@@ -69,13 +69,14 @@
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
+  font-family: $ptSans;
 
   font-size: calcFluidFontSize(14, 18, 320, 1440);
   color: #ffffff;
 
   strong {
     font-size: calcFluidFontSize(12, 16, 320, 1440);
-    font-family: "Oswald";
+    font-family: $oswald;
     font-weight: 500;
     text-transform: uppercase;
   }

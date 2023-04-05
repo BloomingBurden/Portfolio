@@ -3,35 +3,43 @@ import { dataGallery } from './dataGallery.js';
 const basePopup = (data) => {
     const popup = `
         <header class="popup__header">
-            <div class="popup__preview">
-                <h2 class="popup__title">${data.title}</h2>
-                <p class="popup__subtitle">${data.subtitle}</p>
-            </div>
             <div class="popup__body">
-                <img src="../img/popup/${data.images[0]}" alt="Изображение сайта - моб версия" class="popup__img popup__img--mobile">
-                <img src="../img/popup/${data.images[1]}" alt="Изображение сайта - планшетная версия" class="popup__img popup__img--table">
-                <img src="../img/popup/${data.images[2]}" alt="Изображение сайта - компьютерная версия" class="popup__img popup__img--desktop">
+                <picture>
+                    <source media="(min-width: 768px)" type="image/webp" srcset="../img/popup/${data.images[1]}.webp">
+                    <source media="(min-width: 768px)" srcset="../img/popup/${data.images[1]}.jpg">
+                    <source type="image/webp" srcset="../img/popup/${data.images[0]}.webp">
+                    <img class="popup__img" src="../img/popup/${data.images[0]}.jpg"  alt="Изображение сайта">
+                </picture>
             </div>
         </header>
         <div class="popup__main">
-            <div class="popup__top">
-                <h3 class="popup__body-title">${data.preview}</h3>
-                <p class="popup__text">${data.descr}</p>
+            <div class="popup__content">
+                <div class="popup__top">
+                    <h2 class="popup__title">${data.title}</h2>
+                    <p class="popup__text">${data.descr}</p>
+                </div>
+                <a href="#" class="popup__visit">Посетить образец сайта</a>
+                <div class="popup__bottom">
+                    <div class="popup__item">
+                        <h3 class="popup__title">Задача: </h3>
+                        <p class="popup__addition">${data.text[0]}</p>
+                    </div>
+                    <div class="popup__item">
+                        <h3 class="popup__title">Технологии: </h3>
+                        <p class="popup__addition">${data.text[1]}</p>
+                    </div>
+                    <div class="popup__item">
+                        <h3 class="popup__title">Сложность: </h3>
+                        <p class="popup__addition">${data.text[2]}</p>
+                    </div>
+                </div>
             </div>
-            <ul class="popup__bottom">
-                <li class="popup__item">
-                    <h3 class="popup__bot-title">Задача: </h3>
-                    <p class="popup__addition">${data.text[0]}</p>
-                </li>
-                <li class="popup__item">
-                    <h3 class="popup__bot-title">Технологии: </h3>
-                    <p class="popup__addition">${data.text[1]}</p>
-                </li>
-                <li class="popup__item">
-                    <h3 class="popup__bot-title">Сложность: </h3>
-                    <p class="popup__addition">${data.text[2]}</p>
-                </li>
-            </ul>
+            <div class="popup__body-img">
+                <picture>
+                    <source type="image/webp" srcset="../img/popup/${data.images[3]}.webp">
+                    <img src="../img/popup/${data.images[3]}.jpg" alt="Фоновое изображение сайта">
+                </picture>
+            </div>
         </div>
         <footer class="popup__footer">
             <video src="../video/popup/${data.video}"></video>
@@ -47,7 +55,6 @@ const gallery = document.querySelector('.gallery');
 const renderPopup = (section) => {
     const tmpDiv = document.createElement('section');
     tmpDiv.classList.add('popup');
-
     tmpDiv.innerHTML = section;
     document.body.prepend(tmpDiv);
 };
