@@ -91,12 +91,13 @@
 }
 
 .preview__subtitle {
-  font-size: calcFluidFontSize(16, 24, 320, 1440);
+  font-size: calcFluidFontSize(16, 20, 320, 1440);
   margin: 0;
   margin-bottom: 5vmax;
+  line-height: 1.1;
 
   @media (min-width: $desktopW) {
-    font-size: calc(1rem + 0.5vw);
+    font-size: calc(0.7rem + 0.5vw);
   }
 
   a {
@@ -166,7 +167,7 @@
     }
     
     .preview__body {
-      max-width: 70%;
+      max-width: 50%;
       padding-left: 0;
     }
 

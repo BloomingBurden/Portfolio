@@ -1,4 +1,5 @@
 import { dataGallery } from './dataGallery.js';
+import { animationScrollEffect } from './moveAnimationEffect.js';
 
 const basePopup = (data) => {
     const popup = `
@@ -14,36 +15,33 @@ const basePopup = (data) => {
         </header>
         <div class="popup__main">
             <div class="popup__content">
-                <div class="popup__top">
+                <div class="popup__top" data-move-effects="scale, true">
                     <h2 class="popup__title">${data.title}</h2>
                     <p class="popup__text">${data.descr}</p>
                 </div>
                 <a href="#" class="popup__visit">Посетить образец сайта</a>
                 <div class="popup__bottom">
-                    <div class="popup__item">
-                        <h3 class="popup__title">Задача: </h3>
+                    <div class="popup__item" data-move-effects="left, true">
+                        <h3 class="popup__title">Технологии: </h3>
                         <p class="popup__addition">${data.text[0]}</p>
                     </div>
-                    <div class="popup__item">
-                        <h3 class="popup__title">Технологии: </h3>
-                        <p class="popup__addition">${data.text[1]}</p>
-                    </div>
-                    <div class="popup__item">
+                    <div class="popup__item" data-move-effects="right, true">
                         <h3 class="popup__title">Сложность: </h3>
-                        <p class="popup__addition">${data.text[2]}</p>
+                        <p class="popup__addition">${data.text[1]}</p>
                     </div>
                 </div>
             </div>
             <div class="popup__body-img">
                 <picture>
-                    <source type="image/webp" srcset="../img/popup/${data.images[3]}.webp">
-                    <img src="../img/popup/${data.images[3]}.jpg" alt="Фоновое изображение сайта">
+                    <source type="image/webp" srcset="../img/gallery/${data.images[2]}.webp">
+                    <img src="../img/gallery/${data.images[2]}.jpg" alt="Фоновое изображение сайта">
                 </picture>
             </div>
         </div>
         <footer class="popup__footer">
-            <video src="../video/popup/${data.video}"></video>
+            <video src="../video/popup/${data.video}" loop="true" muted="" autoplay="" arial-label="Видео"></video>
         </footer>
+        <button class="popup__close">Закрыть</button>
     `;
 
     return popup;
@@ -51,13 +49,31 @@ const basePopup = (data) => {
 
 const gallery = document.querySelector('.gallery');
 
+const closePopup = (element) => {
+    element.style.animation = 'popupDown 1.5s ease forwards';
+    document.body.removeAttribute('style');
+    document.body.classList.remove('stop-scrolling');
+   
+    setTimeout(() => {
+        element.remove();
+    }, 1600);
+};
 
 const renderPopup = (section) => {
     const tmpDiv = document.createElement('section');
     tmpDiv.classList.add('popup');
     tmpDiv.innerHTML = section;
     document.body.prepend(tmpDiv);
+
+    const closeBtn = document.querySelector('.popup__close');
+
+    animationScrollEffect(tmpDiv);
+
+    closeBtn.addEventListener('click', () => {
+        closePopup(tmpDiv);
+    });
 };
+
 
 const onClickGallery = (evt) => {
     evt.preventDefault();
@@ -68,13 +84,12 @@ const onClickGallery = (evt) => {
 
     const currentData = target.dataset.popupItem;
 
+    if (!currentData) return;
+    
     document.body.style.overflow = 'hidden';
     document.body.classList.add('stop-scrolling');
-
-    if (!currentData) return;
 
     renderPopup(basePopup(dataGallery[currentData]));
 };
 
 gallery.addEventListener('click', onClickGallery);
-

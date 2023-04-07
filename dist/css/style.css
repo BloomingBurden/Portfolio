@@ -479,7 +479,7 @@ body {
   min-height: 100%;
   font-family: "Playfair Display", sans-serif;
   font-size: 1.125rem;
-  line-height: 1.1;
+  line-height: 1.2;
   min-width: 320px;
   color: #000000;
   font-weight: 400;
@@ -711,9 +711,10 @@ ul {
 }
 
 .preview__subtitle {
-  font-size: calc( 0.0071428571 * 100vw + 13.7142857143px );
+  font-size: calc( 0.0035714286 * 100vw + 14.8571428571px );
   margin: 0;
   margin-bottom: 5vmax;
+  line-height: 1.1;
 }
 
 .preview__subtitle a:hover,
@@ -970,7 +971,8 @@ ul {
      object-position: center;
 }
 
-.menu__button {
+.menu__button,
+.popup__close {
   cursor: pointer;
   z-index: 30;
   position: fixed;
@@ -1049,6 +1051,38 @@ ul {
   }
 }
 
+@-webkit-keyframes popupDown {
+  from {
+    height: 100%;
+  }
+
+  40% {
+    -webkit-transform: scale(2) rotate(15deg);
+            transform: scale(2) rotate(15deg);
+  }
+
+  100% {
+    -webkit-transform: scale(3) rotate(0deg) translateX(-100%);
+            transform: scale(3) rotate(0deg) translateX(-100%);
+  }
+}
+
+@keyframes popupDown {
+  from {
+    height: 100%;
+  }
+
+  40% {
+    -webkit-transform: scale(2) rotate(15deg);
+            transform: scale(2) rotate(15deg);
+  }
+
+  100% {
+    -webkit-transform: scale(3) rotate(0deg) translateX(-100%);
+            transform: scale(3) rotate(0deg) translateX(-100%);
+  }
+}
+
 .popup {
   width: 100%;
   height: 100%;
@@ -1063,37 +1097,53 @@ ul {
           animation: popupUp 1.5s ease forwards;
 }
 
-.popup__header {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-}
-
+.popup__header,
 .popup__main,
 .popup__footer {
   position: relative;
-  min-height: 100vh;
   width: 100%;
 }
 
-.popup__body-img {
-  display: none;
-  width: 50%;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-          flex: 0 0 50%;
+.popup__header {
+  height: 100vh;
+}
+
+.popup__footer {
+  min-height: 100vh;
+  background-color: #F2EFE6;
+}
+
+.popup__footer video {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100vh;
+  width: 100%;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+}
+
+.popup__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 60px 25px 150px 25px;
+  min-height: 100vh;
 }
 
 .popup__main {
   font-size: calc( 0.0071428571 * 100vw + 13.7142857143px );
-  padding: 60px 25px;
+  min-height: 100vh;
 }
 
 .popup__title {
   margin: 0;
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
-  font-size: calc( 0.0053571429 * 100vw + 10.2857142857px );
+  font-size: calc( 0.0044642857 * 100vw + 9.5714285714px );
   font-weight: 500;
 }
 
@@ -1104,9 +1154,6 @@ h2.popup__title {
 .popup__body {
   height: 100vh;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .popup__img {
@@ -1125,13 +1172,13 @@ h2.popup__title {
 }
 
 .popup__visit {
+  margin-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 5em;
   font-family: "Oswald", sans-serif;
   font-weight: 500;
   text-decoration: none;
@@ -1165,6 +1212,15 @@ h2.popup__title {
   margin: 0;
 }
 
+.popup__bottom {
+  margin-top: auto;
+  font-size: calc( 0.0035714286 * 100vw + 12.8571428571px );
+}
+
+.popup__bottom .popup__item:last-child {
+  font-family: "PT Sans Narrow", sans-serif;
+}
+
 h3.popup__title {
   margin-bottom: 10px;
 }
@@ -1173,13 +1229,29 @@ h3.popup__title {
   margin-bottom: 30px;
 }
 
-.popup__item:nth-child(2),
-.popup__item:nth-child(3) {
-  font-family: "PT Sans Narrow", sans-serif;
+.popup__item:last-child {
+  margin-bottom: 0;
+}
+
+.popup__body-img {
+  display: none;
+}
+
+.popup__body-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
 }
 
 .popup__addition {
   margin: 0;
+}
+
+.popup__close {
+  z-index: 45;
 }
 
 @media (min-width: 450px) {
@@ -1235,13 +1307,57 @@ h3.popup__title {
   .works-page .gallery__two--margin {
     margin-right: 15px;
   }
+
+  .popup__footer {
+    min-height: auto;
+  }
+
+  .popup__footer video {
+    height: auto;
+  }
+
+  .popup__content {
+    min-height: auto;
+    padding: 60px 25px 80px 25px;
+  }
+
+  .popup__main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .popup__top {
+    margin-bottom: 2em;
+  }
+
+  .popup__bottom {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .popup__bottom .popup__item:first-child {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+
+  .popup__body-img {
+    margin-top: auto;
+    width: 100%;
+    display: block;
+    height: 300px;
+  }
 }
 
 @media (min-width: 1000px) {
-  .popup__body-img {
-    display: block;
-  }
-
   .popup__content {
     width: 50%;
     -webkit-box-flex: 0;
@@ -1250,9 +1366,15 @@ h3.popup__title {
   }
 
   .popup__main {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .popup__body-img {
+    min-height: 100vh;
+    margin: 0;
   }
 }
 
@@ -1293,7 +1415,7 @@ h3.popup__title {
   }
 
   .index-body .preview__body {
-    max-width: 70%;
+    max-width: 50%;
     padding-left: 0;
   }
 
@@ -1312,16 +1434,16 @@ h3.popup__title {
     -webkit-box-ordinal-group: 0;
         -ms-flex-order: -1;
             order: -1;
-    padding-right: 35px;
+    padding-right: 15px;
     background-color: #ffffff;
   }
 
   .index-body .gallery__one {
-    margin-right: 35px;
+    margin-right: 15px;
   }
 
   .index-body .gallery__item {
-    margin-bottom: 35px;
+    margin-bottom: 15px;
   }
 
   .index-body .gallery__item:last-child {
@@ -1335,7 +1457,7 @@ h3.popup__title {
   }
 
   .preview__subtitle {
-    font-size: calc(1rem + 0.5vw);
+    font-size: calc(0.7rem + 0.5vw);
   }
 
   .index-body .preview__title {
@@ -1355,10 +1477,15 @@ h3.popup__title {
     margin-right: 2vw;
   }
 
-  .menu__button {
+  .menu__button,
+  .popup__close {
     width: 4vw;
     height: 4vw;
     font-size: calc(0.3rem + 0.5vw);
+  }
+
+  .popup__content {
+    padding: 5em;
   }
 
   .popup__main {

@@ -1,8 +1,8 @@
-import { throttling } from "./utils.js";
-
 const gallery = document.querySelector('.gallery__inner');
+let stopScrolling = false;
 
 const onScrollWindow = () => {
+    if (document.body.classList.contains('stop-scrolling') || stopScrolling) return;
     window.scrollBy(0, 1);
 }
 
@@ -91,6 +91,8 @@ const resetScroll = () => {
 const scrollingGallery = () => {
     window.addEventListener('scroll', onScrollGallery);
     window.addEventListener('resize', resetScroll);
+    gallery.addEventListener('mouseover', () => stopScrolling = true);
+    gallery.addEventListener('mouseout', () => stopScrolling = false);
 };
 
 export { scrollingGallery }

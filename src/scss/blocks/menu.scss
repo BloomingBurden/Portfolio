@@ -124,7 +124,8 @@
   }
 }
 
-.menu__button {
+.menu__button, 
+.popup__close {
   cursor: pointer;
   z-index: 30;
   position: fixed;
