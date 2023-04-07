@@ -1,0 +1,86 @@
+.about-page {
+  .wrapper {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    perspective: 1500px;
+    background-color: #000000;
+    color: #ffffff;
+  }
+}
+
+.about {
+  transform-style: preserve-3d;
+  height: 100%;
+}
+
+.about__frame {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity $scrollTrans;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+
+.about__title {
+  font-family: $montserrat;
+  text-align: center;
+  font-weight: 200;
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-size: calcFluidFontSize(30, 50, 320, 1440);
+}
+
+.about__content {
+  position: relative;
+}
+
+.about__content--left {
+  @media (min-width: $tableW) {
+    transform: translateX(-55%);
+  }
+  
+}
+
+.about__content--right {
+  @media (min-width: $tableW) {
+    transform: translateX(55%);
+  }
+}
+
+.about__img {
+  max-width: 600px;
+  width: 100%;
+}
+
+.about__video {
+  height: auto;
+  width: 80vw;
+  max-width: 800px;
+}
+
+.about__bg {
+  background-color: rgba(0,0,0, 0.8);
+}
+
+.about__text{
+  h3 {
+    font-family: $montserrat;
+    text-transform: uppercase;
+    font-size: calcFluidFontSize(40, 80, 320, 1440);
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 0;
+    font-family: $ptSans;
+    font-weight: 400;
+    font-size: calcFluidFontSize(20, 40, 320, 1440);
+  }
+}

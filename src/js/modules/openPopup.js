@@ -14,9 +14,9 @@ const hasVideo = (data, path) => {
 
 const basePopup = (data) => {
     const PATHS = {
-        img: '../img/popup/',
-        video: '../video/popup/',
-        other: '../img/gallery/',
+        img: './img/popup/',
+        video: './video/popup/',
+        other: './img/gallery/',
     };
 
     const options = hasVideo(data, PATHS);
@@ -82,6 +82,7 @@ const renderPopup = (section) => {
     const tmpDiv = document.createElement('section');
     tmpDiv.classList.add('popup');
     tmpDiv.innerHTML = section;
+    tmpDiv.style.scrollBehavior = 'smooth';
     document.body.prepend(tmpDiv);
 
     const closeBtn = document.querySelector('.popup__close');
@@ -111,4 +112,6 @@ const onClickGallery = (evt) => {
     renderPopup(basePopup(dataGallery[currentData]));
 };
 
-gallery.addEventListener('click', onClickGallery);
+if (gallery) {
+    gallery.addEventListener('click', onClickGallery);
+}

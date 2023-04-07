@@ -2,15 +2,22 @@ const gallery = document.querySelector('.gallery__inner');
 let stopScrolling = false;
 
 const onScrollWindow = () => {
-    if (document.body.classList.contains('stop-scrolling') || stopScrolling) return;
     window.scrollBy(0, 1);
 }
 
-if (window.innerWidth >= 1050) {
-    setInterval(() => {
-        onScrollWindow();
-    }, 30)
+
+const intervalScroll = () => {
+    if (document.body.classList.contains('stop-scrolling') || stopScrolling) return;
+
+    if (window.innerWidth >= 1050) {
+        setInterval(() => {
+            onScrollWindow();
+        }, 30)
+    }
 }
+intervalScroll();
+
+
 
 let firstTempArray = [];
 let secondTempArray = [];
@@ -64,7 +71,7 @@ const getData = () => {
     return data;
 }
 
-let data = getData();
+let data = !gallery ? false : getData();
 
 
 const onScrollGallery = (evt) => {
@@ -89,6 +96,8 @@ const resetScroll = () => {
 }
 
 const scrollingGallery = () => {
+    if (!gallery) return;
+
     window.addEventListener('scroll', onScrollGallery);
     window.addEventListener('resize', resetScroll);
 
