@@ -1113,6 +1113,11 @@ ul {
   background-color: #F2EFE6;
 }
 
+.popup__footer img {
+  display: block;
+  margin: 0 auto;
+}
+
 .popup__footer video {
   -o-object-fit: contain;
      object-fit: contain;
@@ -1219,6 +1224,8 @@ h2.popup__title {
 
 .popup__bottom .popup__item:last-child {
   font-family: "PT Sans Narrow", sans-serif;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 h3.popup__title {
@@ -1353,7 +1360,7 @@ h3.popup__title {
     margin-top: auto;
     width: 100%;
     display: block;
-    height: 300px;
+    height: 40vh;
   }
 }
 
@@ -1373,6 +1380,7 @@ h3.popup__title {
   }
 
   .popup__body-img {
+    height: 100vh;
     min-height: 100vh;
     margin: 0;
   }

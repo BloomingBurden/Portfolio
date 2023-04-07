@@ -1,15 +1,34 @@
 import { dataGallery } from './dataGallery.js';
 import { animationScrollEffect } from './moveAnimationEffect.js';
 
+const hasVideo = (data, path) => {
+    return !!data.video ? `
+        <video src="${path.video + data.video}" loop="true" muted="" autoplay="" arial-label="Видео"></video>` : 
+        `<picture>
+            <source media="(min-width: 768px)" type="image/webp" srcset="${path.img + data.poster}-d.webp">
+            <source media="(min-width: 768px)" srcset="${path.img + data.poster}-d.jpg">
+            <source type="image/webp" srcset="${path.img + data.poster}-m.webp">
+            <img src="${path.img + data.poster}-m.jpg" alt="Фоновое изображение ${data.title}">
+        </picture>`
+};
+
 const basePopup = (data) => {
+    const PATHS = {
+        img: '../img/popup/',
+        video: '../video/popup/',
+        other: '../img/gallery/',
+    };
+
+    const options = hasVideo(data, PATHS);
+
     const popup = `
         <header class="popup__header">
             <div class="popup__body">
                 <picture>
-                    <source media="(min-width: 768px)" type="image/webp" srcset="../img/popup/${data.images[1]}.webp">
-                    <source media="(min-width: 768px)" srcset="../img/popup/${data.images[1]}.jpg">
-                    <source type="image/webp" srcset="../img/popup/${data.images[0]}.webp">
-                    <img class="popup__img" src="../img/popup/${data.images[0]}.jpg"  alt="Изображение сайта">
+                    <source media="(min-width: 768px)" type="image/webp" srcset="${PATHS.img + data.images[1]}.webp">
+                    <source media="(min-width: 768px)" srcset="${PATHS.img + data.images[1]}.jpg">
+                    <source type="image/webp" srcset="${PATHS.img + data.images[0]}.webp">
+                    <img class="popup__img" src="${PATHS.img + data.images[0]}.jpg"  alt="Изображение сайта">
                 </picture>
             </div>
         </header>
@@ -33,13 +52,13 @@ const basePopup = (data) => {
             </div>
             <div class="popup__body-img">
                 <picture>
-                    <source type="image/webp" srcset="../img/gallery/${data.images[2]}.webp">
-                    <img src="../img/gallery/${data.images[2]}.jpg" alt="Фоновое изображение сайта">
+                    <source type="image/webp" srcset="${PATHS.other + data.images[2]}.webp">
+                    <img src="${PATHS.other + data.images[2]}.jpg" alt="Фоновое изображение сайта">
                 </picture>
             </div>
         </div>
         <footer class="popup__footer">
-            <video src="../video/popup/${data.video}" loop="true" muted="" autoplay="" arial-label="Видео"></video>
+            ${options}
         </footer>
         <button class="popup__close">Закрыть</button>
     `;

@@ -47,7 +47,7 @@ export const animationScrollEffect = (element) => {
     };
 
     const startMoving = (item, elemPosY, currentY, effect) => {
-        if (currentY >= elemPosY) {
+        if (currentY >= elemPosY + 100) {
             item.style.transform = `${effects[effect].back}`;
             item.style.opacity = 1;
             item.style.visibility = 'visible';
@@ -64,7 +64,6 @@ export const animationScrollEffect = (element) => {
     }
 
     const setMoveEffects = (evt) => {
-        console.log(1);
         dataEffects.forEach(item => {
             const elemPosY = window.pageYOffset + item.getBoundingClientRect().top;
             const currentY = window.pageYOffset + window.innerHeight;

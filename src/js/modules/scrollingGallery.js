@@ -20,7 +20,7 @@ const changeColumnGallery = () => {
     const firstColumn = document.querySelectorAll('.gallery__one');
     const secondColumn = document.querySelectorAll('.gallery__two');
 
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth < 768) {
 
         if (galleryChange) return;
 
@@ -91,8 +91,11 @@ const resetScroll = () => {
 const scrollingGallery = () => {
     window.addEventListener('scroll', onScrollGallery);
     window.addEventListener('resize', resetScroll);
-    gallery.addEventListener('mouseover', () => stopScrolling = true);
-    gallery.addEventListener('mouseout', () => stopScrolling = false);
+
+    if (document.body.classList.contains('index-body')) {
+        gallery.addEventListener('mouseover', () => stopScrolling = true);
+        gallery.addEventListener('mouseout', () => stopScrolling = false);
+    }
 };
 
 export { scrollingGallery }
