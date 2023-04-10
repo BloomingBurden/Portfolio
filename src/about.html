@@ -1,5 +1,5 @@
 @@include('html/header.html', {
-  "title": "Портфолио",
+  "title": "Обо мне",
   "bodyClass": "about-page"
 })
 
@@ -33,16 +33,16 @@
 
       <div class="about__frame"></div>
 
-      <div class="about__frame about__bg">
+      <div class="about__frame about__bg-text">
         <div class="about__content about__content--left">
           <div class="about__text">
             <h3>Обо мне</h3>
-            <p>Всем  привет! Меня зовут Алексей, мне 26 лет.</p>
+            <p>Всем  привет! Меня зовут Алексей, мне 26 лет. Последние пару лет я работал в IT сфере, улучшая свои навыки и получая неоценимый опыт.</p>
           </div>
         </div>
       </div>
 
-      <div class="about__frame">
+      <div class="about__frame about__bg">
         <div class="about__content about__content--right">
           <picture>
             <source type="image/webp" srcset="@img/about/me.webp">
@@ -50,8 +50,95 @@
           </picture>
         </div>
       </div>
-      
 
+      <div class="about__frame"></div>
+
+      <div class="about__frame about__bg-text">
+        <div class="about__content about__content--right">
+          <div class="about__text">
+            <h3>Хобби</h3>
+            <p>Свободное время я предпочитаю проводить за чтением книг или активным отдыхом: походы, спорт, велопрогулка, флорбор.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about__frame about__bg about__frame--list">
+        <div class="about__content about__content--left">
+          <video class="about__video" src="./video/about/like-video.mp4" autoplay muted loop></video>
+        </div>
+      </div>
+
+      <div class="about__frame"></div>
+
+      <div class="about__frame about__bg-text">
+        <div class="about__content about__content--left">
+          <div class="about__text">
+            <h3>Навыки</h3>
+            <ul class="about__skills">
+              <li class="about__skill">HTML/CSS/JS</li>
+              <li class="about__skill">Препроцессоры SCSS/LESS</li>
+              <li class="about__skill">Gulp/Npm скрипты</li>
+              <li class="about__skill">БЭМ методология</li>
+              <li class="about__skill">Git, Github</li>
+              <li class="about__skill">Pixel perfect</li>
+              <li class="about__skill">Адаптивность/Отзывчивость</li>
+              <li class="about__skill">Кроссбраузерность</li>
+              <li class="about__skill">Соблюдение стандартов W3C</li>
+              <li class="about__skill">Flexbox/Grid</li>
+              <li class="about__skill">Оптимизация под Google pagespeed</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="about__frame about__bg">
+        <div class="about__content about__content--right">
+          <picture>
+            <source media="(min-width: 768px)" type="image/webp" srcset="@img/about/skills@2x.webp">
+            <source media="(min-width: 768px)" srcset="@img/about/skills@2x.jpg">
+            <source type="image/webp" srcset="@img/about/skills.webp, @img/about/skills@2x.webp 2x">
+            <img class="about__img" src="@img/about/skills.jpg" srcset="@img/about/skills@2x.jpg 2x" alt="Вступительное изображение!">
+          </picture>
+        </div>
+      </div>
+
+      <div class="about__frame"></div>
+
+
+      <div class="about__frame about__bg-text">
+        <div class="about__content about__content--right">
+          <div class="about__text">
+            <h3>О сайте</h3>
+            <p>Blooming.b - сайт портфолио, реализованный без библиотек, фреймворков и плагинов. Функционал сайта писался на чистом JS. Для проекта использовал свою стартовую сборку с Gulp.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about__frame about__bg">
+        <div class="about__content about__content--left">
+          <picture>
+            <source media="(min-width: 768px)" type="image/webp" srcset="@img/about/about-icons@2x.webp">
+            <source media="(min-width: 768px)" srcset="@img/about/about-icons@2x.jpg">
+            <source type="image/webp" srcset="@img/about/about-icons.webp, @img/about/about-icons@2x.webp 2x">
+            <img class="about__img" src="@img/about/about-icons.jpg" srcset="@img/about/about-icons@2x.jpg 2x" alt="Фон - иконки">
+          </picture>
+        </div>
+      </div>
+
+      <div class="about__frame">
+        <div class="about__content">
+          <video class="about__video" src="./video/about/code-video.mp4" autoplay muted loop></video>
+        </div>
+      </div>
+
+      <div class="about__frame"></div>
+
+      <div class="about__frame">
+        <div class="about__content">
+          <strong>@BloomingBurden</strong>
+        </div>
+      </div>
+      
     </section>
   </div>
 

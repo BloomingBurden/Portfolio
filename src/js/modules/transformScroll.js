@@ -1,14 +1,16 @@
+import { setAnimationOnList } from "./aboutListUp.js";
+
 const frames = document.querySelectorAll('.about__frame');
 const zVals = [];
 
-let zSpacing = -1500;
+let zSpacing = -1300;
 let lastPos = zSpacing / 5;
-
+let isTextReady = false;
 
 const transformScroll = () => {
     let top = document.documentElement.scrollTop;
     let delta = lastPos - top;
-    const spaceOpacity = window.innerWidth < 768 ? 3 : 2;
+    const spaceOpacity = 4;
 
     lastPos = top;
 
@@ -20,6 +22,16 @@ const transformScroll = () => {
 
         item.style.transform = `translateZ(${zVals[i]}px)`;
         item.style.opacity = `${opacity}`;
+
+        if (item.classList.contains('about__frame--list')) {
+            if (item.getBoundingClientRect().top + 100 <= 0) {
+                if (!isTextReady) {
+                    setAnimationOnList();
+                }
+
+                isTextReady = true;
+            }
+        }
     });
 };
 

@@ -394,18 +394,6 @@ template {
   /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* playfair-display-regular - cyrillic_latin */
-
-@font-face {
-  font-display: swap;
-  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: "Playfair Display";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/playfair-display-v30-cyrillic_latin-regular.woff2") format("woff2"), url("../fonts/playfair-display-v30-cyrillic_latin-regular.woff") format("woff");
-  /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
 /* oswald-regular - cyrillic_latin */
 
 @font-face {
@@ -439,6 +427,18 @@ template {
   font-style: normal;
   font-weight: 100;
   src: url("../fonts/montserrat-v25-cyrillic_latin-100.woff2") format("woff2"), url("../fonts/montserrat-v25-cyrillic_latin-100.woff") format("woff");
+  /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-300 - cyrillic_latin */
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/roboto-v30-cyrillic_latin-300.woff2") format("woff2"), url("../fonts/roboto-v30-cyrillic_latin-300.woff") format("woff");
   /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
@@ -489,12 +489,12 @@ html {
 
 body {
   min-height: 100%;
-  font-family: "Playfair Display", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.125rem;
   line-height: 1.2;
   min-width: 320px;
   color: #000000;
-  font-weight: 400;
+  font-weight: 300;
   position: relative;
   overflow-x: hidden;
   word-break: break-word;
@@ -509,7 +509,7 @@ body {
 }
 
 .about-page {
-  height: 4000px;
+  height: 5300px;
   scroll-behavior: smooth;
 }
 
@@ -977,6 +977,7 @@ ul {
   border-radius: 7px;
   overflow: hidden;
   max-width: 130px;
+  height: 250px;
 }
 
 .menu__img img {
@@ -1307,9 +1308,9 @@ h3.popup__title {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-transition: opacity 0.75s cubic-bezier(0.075, 0.5, 0, 1);
-  -o-transition: opacity 0.75s cubic-bezier(0.075, 0.5, 0, 1);
-  transition: opacity 0.75s cubic-bezier(0.075, 0.5, 0, 1);
+  -webkit-transition: opacity 0.8s cubic-bezier(0.075, 0.5, 0, 1);
+  -o-transition: opacity 0.8s cubic-bezier(0.075, 0.5, 0, 1);
+  transition: opacity 0.8s cubic-bezier(0.075, 0.5, 0, 1);
   will-change: transform;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
@@ -1328,6 +1329,10 @@ h3.popup__title {
   position: relative;
 }
 
+.about__content--left {
+  text-align: right;
+}
+
 .about__img {
   max-width: 600px;
   width: 100%;
@@ -1335,27 +1340,75 @@ h3.popup__title {
 
 .about__video {
   height: auto;
-  width: 80vw;
-  max-width: 800px;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 1000px;
 }
 
-.about__bg {
-  background-color: rgba(0, 0, 0, 0.8);
+.about__bg::after {
+  content: "";
+  width: 200vw;
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.about__bg-text {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .about__text h3 {
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
-  font-size: calc( 0.0357142857 * 100vw + 28.5714285714px );
+  font-size: calc( 0.0267857143 * 100vw + 31.4285714286px );
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 0.3em;
 }
 
 .about__text p {
   margin: 0;
-  font-family: "PT Sans Narrow", sans-serif;
-  font-weight: 400;
-  font-size: calc( 0.0178571429 * 100vw + 14.2857142857px );
+  line-height: 1.4;
+  font-size: calc( 0.0133928571 * 100vw + 15.7142857143px );
+}
+
+.about__text li {
+  line-height: 1.3;
+  font-size: calc( 0.0107142857 * 100vw + 12.5714285714px );
+}
+
+.about__text strong {
+  font-size: calc( 0.0107142857 * 100vw + 12.5714285714px );
+}
+
+@-webkit-keyframes textUp {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 40px;
+  }
+}
+
+@keyframes textUp {
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 40px;
+  }
+}
+
+.about__skill {
+  height: 0;
+  overflow: hidden;
+}
+
+.about__skill--anime {
+  -webkit-animation: textUp 0.8s cubic-bezier(0.075, 0.5, 0, 1) forwards;
+          animation: textUp 0.8s cubic-bezier(0.075, 0.5, 0, 1) forwards;
 }
 
 @media (min-width: 450px) {
@@ -1470,6 +1523,14 @@ h3.popup__title {
     -webkit-transform: translateX(55%);
         -ms-transform: translateX(55%);
             transform: translateX(55%);
+  }
+
+  .about__bg-text {
+    background-color: transparent;
+  }
+
+  .about__text {
+    width: 80vw;
   }
 }
 
@@ -1606,6 +1667,10 @@ h3.popup__title {
   }
 
   .popup__main {
-    font-size: calc(1rem + 0.5vw);
+    font-size: calc(0.8rem + 0.5vw);
+  }
+
+  .about__text {
+    width: 50vw;
   }
 }
