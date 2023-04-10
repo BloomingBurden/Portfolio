@@ -8,7 +8,7 @@ const hasVideo = (data, path) => {
             <source media="(min-width: 768px)" type="image/webp" srcset="${path.img + data.poster}-d.webp">
             <source media="(min-width: 768px)" srcset="${path.img + data.poster}-d.jpg">
             <source type="image/webp" srcset="${path.img + data.poster}-m.webp">
-            <img src="${path.img + data.poster}-m.jpg" alt="Фоновое изображение ${data.title}">
+            <img src="${path.img + data.poster}-m.jpg" alt="Фоновое изображение loading="lazy" ${data.title}">
         </picture>`
 };
 
@@ -53,7 +53,7 @@ const basePopup = (data) => {
             <div class="popup__body-img">
                 <picture>
                     <source type="image/webp" srcset="${PATHS.other + data.images[2]}.webp">
-                    <img src="${PATHS.other + data.images[2]}.jpg" alt="Фоновое изображение сайта">
+                    <img src="${PATHS.other + data.images[2]}.jpg" loading="lazy" alt="Фоновое изображение сайта">
                 </picture>
             </div>
         </div>

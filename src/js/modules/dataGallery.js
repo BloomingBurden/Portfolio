@@ -49,7 +49,7 @@ export const dataGallery = {
     },
     'imwoman': {
         title: 'I am woman',
-        images: ['imwoman-d', 'imwoman-d', 'woman@2x'],
+        images: ['Imwoman-d', 'Imwoman-d', 'woman@2x'],
         descr: 'Адаптивная верстка главной страницы интернет магазина. Простенькая страница с формой обратной связи.',
         text: ['HTML - SCSS - JS - GULP', '4/10'],
         video: '',
