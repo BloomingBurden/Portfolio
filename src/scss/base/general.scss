@@ -97,3 +97,8 @@ ul {
     display: flex;
   }
 }
+
+
+::-webkit-scrollbar {
+  width: 0;
+}
