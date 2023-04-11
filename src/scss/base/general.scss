@@ -49,6 +49,10 @@ body {
   scroll-behavior: smooth;
 }
 
+.contact-page {
+  background-color: #ffffff;
+}
+
 a {
   font: inherit;
   color: inherit;
@@ -94,6 +98,12 @@ ul {
 
 @media (min-width: $tableDesktopW) {
   .index-body .wrapper {
+    display: flex;
+  }
+}
+
+@media (min-width: $tableW) {
+  .contact-page .wrapper {
     display: flex;
   }
 }

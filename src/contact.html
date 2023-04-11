@@ -1,0 +1,49 @@
+@@include('html/header.html', {
+  "title": "Контакты",
+  "bodyClass": "contact-page stop-scrolling",
+})
+
+<main>
+  <h1 class="visually-hidden">Front-end разработчик Чистяков Алексей</h1>
+  <div class="wrapper">
+    <div class="contact__video">
+      <video src="./video/about/preview-video.mp4" autoplay muted loop></video>
+    </div>
+    <section class="contacts">
+      <h2 class="contacts__title">Контакты</h2>
+      <ul class="contacts__list">
+        <li class="contacts__item">
+          <h3 class="contacts__subtitle">Написать</h3>
+          <a href="mailto: flowersoverskulls96@gmail.com" class="contacts__link">
+            <svg width="25" height="25">
+              <use xlink:href="@img/icons/icons.svg#icon-gmail"></use>
+            </svg>
+            flowersoverskulls96@gmail.com
+          </a>
+        </li>
+        <li class="contacts__item">
+          <h3 class="contacts__subtitle">Kwork.ru</h3>
+          <a href="https://kwork.ru/user/itkoala" target="_blank" class="contacts__link">
+            <svg width="25" height="25">
+              <use xlink:href="@img/icons/icons.svg#icon-kwork"></use>
+            </svg>
+            Моя страница на kwork.ru
+          </a>
+        </li>
+        <li class="contacts__item">
+          <h3 class="contacts__subtitle">Github</h3>
+          <a href="https://github.com/BloomingBurden" target="_blaknk" class="contacts__link">
+            <svg width="25" height="25">
+              <use xlink:href="@img/icons/icons.svg#icon-github"></use>
+            </svg>
+            BloomingBurden
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  @@include('html/menu.html', {})
+</main>
+
+@@include('html/footer.html', {})
