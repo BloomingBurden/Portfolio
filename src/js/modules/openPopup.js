@@ -38,7 +38,7 @@ const basePopup = (data) => {
                     <h2 class="popup__title">${data.title}</h2>
                     <p class="popup__text">${data.descr}</p>
                 </div>
-                <a href="#" class="popup__visit">Посетить образец сайта</a>
+                <a href="${data.site}" target="_blank" class="popup__visit">Посетить образец сайта</a>
                 <div class="popup__bottom">
                     <div class="popup__item" data-move-effects="left, true">
                         <h3 class="popup__title">Технологии: </h3>
