@@ -25,7 +25,7 @@ export const dataGallery = {
     },
     'alira': {
         title: 'Alira',
-        images: ['alira-d', 'alira-d', 'alira@2x'],
+        images: ['alira-m', 'alira-d', 'alira@2x'],
         descr: 'Landing page - адаптивный сайт из 10 блоков. Из интересного: на сайте задействуется таймер, написанный на чистом JS. Оставшиеся время можно спокойно регулировать.',
         text: ['HTML - SCSS - JS - GULP - BOOTSTRAP', '6/10'],
         video: '',
@@ -41,7 +41,7 @@ export const dataGallery = {
     },
     'fashion': {
         title: 'Fashion',
-        images: ['fashion-d', 'fashion-d', 'fashion@2x'],
+        images: ['fashion-m', 'fashion-d', 'fashion@2x'],
         descr: 'Адаптивная верстка главной страницы интернет магазина. Для шапки используется Swiper и самописный код на таймер. Сетка главного контента реализуется с помощью grid. На сайте много изображений, поэтому используем расширенный тег picture, для подключения современного формата .webp и х2 изображений под ретину.',
         text: ['HTML - SCSS - JS - GULP - SWIPER', '7/10'],
         video: '',
@@ -50,17 +50,25 @@ export const dataGallery = {
     'imwoman': {
         title: 'I am woman',
         images: ['Imwoman-d', 'Imwoman-d', 'woman@2x'],
-        descr: 'Адаптивная верстка главной страницы интернет магазина. Простенькая страница с формой обратной связи.',
+        descr: 'Адаптивная верстка главной страницы интернет магазина. Страница в стиле минимализма с формой обратной связи',
         text: ['HTML - SCSS - JS - GULP', '4/10'],
         video: '',
         poster: 'imwoman-video'
     },
     'revista': {
         title: 'Revista',
-        images: ['revista-d', 'revista-d', 'pop@2x'],
+        images: ['revista-m', 'revista-d', 'pop@2x'],
         descr: 'Сайт-визитка. В шапке используем бургер меню. Основная сетка и весь контент сделаны на гридах. Группа видео переключается с помощью Swiper',
         text: ['HTML - SCSS - JS - GULP - SWIPER', '5/10'],
         video: '',
         poster: 'revista-video'
+    },
+    'gordium': {
+        title: 'Gordium',
+        images: ['gordium-m', 'gordium-d', 'gordium@2x'],
+        descr: 'Gordium - одностраничный сайт трейдинговой компании. Сетка построена на grid и flexbox. Элементы адаптивно-отзывчивые. Задействованы два плагина: swiper и mask, весь остальной функционал написан на чистом JS. Карта мира из SVG графики.',
+        text: ['HTML - SCSS - JS - GULP - SWIPER - MASK - POPUP', '6/10'],
+        video: '',
+        poster: 'gordium-video'
     },
 };
