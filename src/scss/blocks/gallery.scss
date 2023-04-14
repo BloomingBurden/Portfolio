@@ -39,7 +39,7 @@
 .gallery__two,
 .gallery__one {
   flex: 1 1 50%;
-  transition: 0.3s cubic-bezier(.19,1.53,.72,.91);
+  transition: transform 0.5s cubic-bezier(.19,1.53,.72,.91);
   will-change: transform;
   transform: translateY(0) translateZ(0);
 }
