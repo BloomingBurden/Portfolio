@@ -3,8 +3,8 @@
 }
 
 .gallery__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: flex-start;
 }
 
 .gallery__item {
@@ -38,16 +38,14 @@
 
 .gallery__two,
 .gallery__one {
+  flex: 1 1 50%;
+  transition: 0.3s cubic-bezier(.19,1.53,.72,.91);
   will-change: transform;
   transform: translateY(0) translateZ(0);
 }
 
 .gallery__two .gallery__img {
-  padding-top: 110%;
-
-  @media (min-width: $desktopW) {
-    padding-top: 100%;
-  }
+  padding-top: 115%;
 }
 
 .gallery__two .gallery__item:nth-child(2n) .gallery__img{

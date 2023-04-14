@@ -8,7 +8,6 @@ const onScrollWindow = () => {
 
 const intervalScroll = () => {
     if (document.body.classList.contains('stop-scrolling') || stopScrolling) return;
-
     if (window.innerWidth >= 1050) {
         setInterval(() => {
             onScrollWindow();
@@ -16,7 +15,6 @@ const intervalScroll = () => {
     }
 }
 intervalScroll();
-
 
 
 let firstTempArray = [];
@@ -34,6 +32,10 @@ const changeColumnGallery = () => {
         if (firstColumn.length >= 2 || secondColumn.length >= 2) {
             firstTempArray = Array.from(firstColumn[1].children);
             secondTempArray = Array.from(secondColumn[1].children);
+
+            firstColumn[1].style.display = 'none';
+            secondColumn[1].style.display = 'none';
+
             firstColumn[0].append(...firstTempArray);
             secondColumn[0].append(...secondTempArray);
             galleryChange = true;
@@ -42,6 +44,8 @@ const changeColumnGallery = () => {
         if (!galleryChange) return;
 
         if (firstColumn[1].children.length === 0 || secondColumn[1].children.length === 0) {
+            firstColumn[1].style.display = 'initial';
+            secondColumn[1].style.display = 'initial';
             firstColumn[1].append(...firstTempArray);
             secondColumn[1].append(...secondTempArray);
             galleryChange = false;
@@ -51,22 +55,51 @@ const changeColumnGallery = () => {
 
 changeColumnGallery();
 
+const resetTransform = (data) => {
+    data.forEach(item => {
+        item.elem.style.transform = `translateY(${0}px) translateZ(0px)`;
+    })
+
+    gallery.style.height = `auto`;
+}
+
 const getData = () => {
-    let data = {};
+    let data = [];
 
     for (let i = 0; i < gallery.children.length; i++) {
         const current = gallery.children[i];
-        const height = Array.from(current.children).reduce((prev, elem) => {
-            return prev + elem.getBoundingClientRect().height + parseFloat(window.getComputedStyle(elem).marginBottom);
-        }, 0)
+        const height = gallery.children[i].getBoundingClientRect().height;
         const gap = gallery.getBoundingClientRect().height - height;
+        
+        if (height <= 10) {
+            continue;
+        }
 
-        data[`elem${i}`] = {
-            'elem': current,
-            'height': height,
-            'gap': gap,
-        };
+        data.push({
+            elem: current,
+            gap: gap,
+            height: height,
+        });
     }
+    
+    data.sort((a, b) => a.gap < b.gap ? true : false);
+
+    let maxGap = data[0].gap;
+
+    data.forEach((item, i) => {
+        if (i !== 0) {
+            item.gap = maxGap - item.gap;
+        }
+    });
+
+    data[0].gap = 0;
+
+    if (window.innerHeight > data[0].height) {
+        resetTransform(data);
+        return false;
+    }
+
+    gallery.style.height = `${data[0].height}px`;
 
     return data;
 }
@@ -76,18 +109,18 @@ let data = !gallery ? false : getData();
 
 const onScrollGallery = (evt) => {
     const galleryPos = gallery.getBoundingClientRect().top;
+
+    if (!data) return;
     
-    for (let key in data) {
-        let currentPos = data[key].gap / (gallery.getBoundingClientRect().height - window.innerHeight);
+    for (let obj of data) {
+        let currentPos = obj.gap / (data[0].height - window.innerHeight);
 
         if (galleryPos >= 0) {
             currentPos = 0;
         };
     
-        data[key].elem.style.transform = `translateY(${-currentPos * galleryPos}px)`;
+        obj.elem.style.transform = `translateY(${currentPos * galleryPos}px) translateZ(0px)`;
     }
-
-
 };
 
 const resetScroll = () => {
