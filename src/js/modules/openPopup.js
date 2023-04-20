@@ -16,7 +16,7 @@ const basePopup = (data) => {
     const PATHS = {
         img: './img/popup/',
         video: './video/popup/',
-        other: './img/gallery/',
+        other: './img/popup/popup-bg/',
     };
 
     const options = hasVideo(data, PATHS);
