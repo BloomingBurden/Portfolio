@@ -76,8 +76,17 @@ export const dataGallery = {
         images: ['gordium-m', 'gordium-d', 'gordium@2x'],
         descr: 'Gordium - одностраничный сайт трейдинговой компании. Сетка построена на grid и flexbox. Элементы адаптивно-отзывчивые. Задействованы два плагина: swiper и mask, весь остальной функционал написан на чистом JS. Карта мира из SVG графики.',
         text: ['HTML - SCSS - JS - GULP - SWIPER - MASK - POPUP', '6/10'],
-        site: 'https://bloomingburden.github.io/gordium',
+        site: '#',
         video: '',
         poster: 'gordium-video'
+    },
+    'portfolio': {
+        title: 'Blooming Burden',
+        images: ['port-m', 'port-d', 'port@2x'],
+        descr: 'Blooming.B - мой сайт портфолио. У меня стояла цель показать свои навыки верстки и JS, без использования фреймворков, библиотек или плагинов. Максимальная оптимизация под GPS - все параметры зеленого цвета. Семантика и доступность, скорость и надежность, минимализм и функциональность - все реализовано в этом проекте!',
+        text: ['HTML - SCSS - JS - GULP', '8/10'],
+        site: '#',
+        video: '',
+        poster: 'port-video'
     },
 };
