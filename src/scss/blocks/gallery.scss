@@ -128,7 +128,7 @@
 }
 
 .gallery__img {
-  background:  linear-gradient(200deg, $color-beige, $color-dark-orange);
+  background:  linear-gradient(200deg, $color-beige 30%, $color-dark-orange);
 
   img {
     box-shadow: 3px 3px 4px 0px rgba(0,0,0,0.1);

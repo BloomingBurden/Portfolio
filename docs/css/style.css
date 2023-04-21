@@ -1013,8 +1013,8 @@ ul {
 }
 
 .gallery__img {
-  background: -o-linear-gradient(250deg, #F2EFE6, #C38133);
-  background: linear-gradient(200deg, #F2EFE6, #C38133);
+  background: -o-linear-gradient(250deg, #F2EFE6 30%, #C38133);
+  background: linear-gradient(200deg, #F2EFE6 30%, #C38133);
 }
 
 .gallery__img img {
