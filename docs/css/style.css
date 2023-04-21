@@ -498,6 +498,8 @@ body {
   position: relative;
   overflow-x: hidden;
   word-break: break-word;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .index-body {
@@ -563,8 +565,8 @@ ul {
   transition: 0.5s ease;
 }
 
-::-webkit-scrollbar {
-  width: 0;
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .header {

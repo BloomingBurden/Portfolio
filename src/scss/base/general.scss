@@ -34,6 +34,8 @@ body {
 	position: relative;
 	overflow-x: hidden;
   word-break: break-word;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .index-body {
@@ -108,7 +110,6 @@ ul {
   }
 }
 
-
-::-webkit-scrollbar {
-  width: 0;
+body::-webkit-scrollbar {
+  display: none;
 }
