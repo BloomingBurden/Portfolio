@@ -1,6 +1,8 @@
 .works-page {
   .gallery__one,
   .gallery__two {
+    transition: transform 0.5s cubic-bezier(0.19, 1.53, 0.72, 0.91);
+
     @media (min-width: $tableW) {
       flex: 1 1 25%;
     }
