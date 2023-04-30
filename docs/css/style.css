@@ -1869,7 +1869,7 @@ h3.popup__title {
   }
 
   .gallery {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.9);
   }
 
   .gallery__two .gallery__item:nth-child(2n) .gallery__img {
