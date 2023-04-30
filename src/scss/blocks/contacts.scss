@@ -1,8 +1,8 @@
 .contacts {
   width: 100%;
   flex: 0 0 100%;
-  color: #000000;
   padding: 7vw;
+  background: $dark-color;
 
   @media (min-width: $tableW) {
     width: 50%;

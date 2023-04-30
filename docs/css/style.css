@@ -470,11 +470,11 @@ template {
 }
 
 ::-moz-selection {
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 ::selection {
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 input,
@@ -493,7 +493,7 @@ body {
   font-size: 1.125rem;
   line-height: 1.2;
   min-width: 320px;
-  color: #000000;
+  color: #FFFFFF;
   font-weight: 300;
   position: relative;
   overflow-x: hidden;
@@ -502,8 +502,23 @@ body {
   scrollbar-width: none;
 }
 
-.index-body {
+.no-webp .index-body::after {
+  background-image: url("../img/bg.jpg"); }
+
+.index-body::after {
+  content: "";
+  z-index: -1;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
   background-color: #F2EFE6;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .works-page {
@@ -567,6 +582,32 @@ ul {
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+.index__video {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.index__video video {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .header {
@@ -786,172 +827,9 @@ body::-webkit-scrollbar {
   opacity: 0.7;
 }
 
-@-webkit-keyframes gallerySwap-1 {
-  from {
-    left: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  60% {
-    left: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  70% {
-    left: -30%;
-    -webkit-transform: rotate(-15deg) scale(0.7);
-            transform: rotate(-15deg) scale(0.7);
-  }
-
-  to {
-    left: -30%;
-    -webkit-transform: rotate(-15deg) scale(0.7);
-            transform: rotate(-15deg) scale(0.7);
-  }
-}
-
-@keyframes gallerySwap-1 {
-  from {
-    left: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  60% {
-    left: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  70% {
-    left: -30%;
-    -webkit-transform: rotate(-15deg) scale(0.7);
-            transform: rotate(-15deg) scale(0.7);
-  }
-
-  to {
-    left: -30%;
-    -webkit-transform: rotate(-15deg) scale(0.7);
-            transform: rotate(-15deg) scale(0.7);
-  }
-}
-
-@-webkit-keyframes gallerySwap-2 {
-  from {
-    top: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  60% {
-    top: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  70% {
-    left: 25%;
-    top: -5%;
-    -webkit-transform: rotate(5deg) scale(0.7);
-            transform: rotate(5deg) scale(0.7);
-  }
-
-  to {
-    left: 25%;
-    top: -5%;
-    -webkit-transform: rotate(5deg) scale(0.7);
-            transform: rotate(5deg) scale(0.7);
-  }
-}
-
-@keyframes gallerySwap-2 {
-  from {
-    top: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  60% {
-    top: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  70% {
-    left: 25%;
-    top: -5%;
-    -webkit-transform: rotate(5deg) scale(0.7);
-            transform: rotate(5deg) scale(0.7);
-  }
-
-  to {
-    left: 25%;
-    top: -5%;
-    -webkit-transform: rotate(5deg) scale(0.7);
-            transform: rotate(5deg) scale(0.7);
-  }
-}
-
-@-webkit-keyframes gallerySwap-3 {
-  from {
-    left: 0;
-    top: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  60% {
-    left: 0;
-    top: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  70% {
-    left: 55%;
-    -webkit-transform: rotate(30deg) scale(0.7);
-            transform: rotate(30deg) scale(0.7);
-  }
-
-  to {
-    left: 55%;
-    -webkit-transform: rotate(30deg) scale(0.7);
-            transform: rotate(30deg) scale(0.7);
-  }
-}
-
-@keyframes gallerySwap-3 {
-  from {
-    left: 0;
-    top: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  60% {
-    left: 0;
-    top: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-
-  70% {
-    left: 55%;
-    -webkit-transform: rotate(30deg) scale(0.7);
-            transform: rotate(30deg) scale(0.7);
-  }
-
-  to {
-    left: 55%;
-    -webkit-transform: rotate(30deg) scale(0.7);
-            transform: rotate(30deg) scale(0.7);
-  }
-}
-
 .gallery {
   overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .gallery__inner {
@@ -965,7 +843,7 @@ body::-webkit-scrollbar {
 
 .gallery__item {
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .gallery__item:last-child {
@@ -1000,13 +878,13 @@ body::-webkit-scrollbar {
   -webkit-transform: translate(-50%, -30%);
       -ms-transform: translate(-50%, -30%);
           transform: translate(-50%, -30%);
-  height: 80%;
-  width: 80%;
+  height: 100%;
+  width: 100%;
 }
 
 .gallery__img--horizontal .gallery__img-inner {
-  height: 45%;
-  width: 85%;
+  height: 50%;
+  width: 100%;
   top: 40%;
 }
 
@@ -1014,32 +892,8 @@ body::-webkit-scrollbar {
   border-radius: 5px;
 }
 
-.gallery__img {
-  background: -o-linear-gradient(250deg, #F2EFE6 30%, #C38133);
-  background: linear-gradient(200deg, #F2EFE6 30%, #C38133);
-}
-
-.gallery__img img {
-  -webkit-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.1);
-}
-
-.gallery__img picture:nth-child(1) img {
-  width: 60%;
-  animation: gallerySwap-3 6s ease infinite alternate-reverse;
-}
-
-.gallery__img picture:nth-child(2) img {
-  width: 70%;
-  animation: gallerySwap-2 6s ease infinite alternate-reverse;
-}
-
-.gallery__img picture:nth-child(3) img {
-  animation: gallerySwap-1 6s ease infinite alternate-reverse;
-}
-
 .gallery__one {
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 .gallery__two,
@@ -1384,7 +1238,7 @@ body::-webkit-scrollbar {
   left: 0;
   position: fixed;
   z-index: 40;
-  background-color: #ffffff;
+  background-color: #181818;
   overflow: hidden;
   overflow-y: scroll;
   -webkit-animation: popupUp 1.5s ease forwards;
@@ -1692,8 +1546,8 @@ h3.popup__title {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
-  color: #000000;
   padding: 7vw;
+  background: #181818;
 }
 
 .contact__video {
@@ -1774,15 +1628,6 @@ h3.popup__title {
 }
 
 @media (min-width: 500px) {
-  .gallery__img-inner {
-    height: 70%;
-    width: 70%;
-  }
-
-  .gallery__subtitle::after {
-    background: transparent;
-  }
-
   .menu__item {
     margin-right: 3vw;
     max-width: 300px;
@@ -1994,7 +1839,6 @@ h3.popup__title {
         -ms-flex-order: -1;
             order: -1;
     padding-right: 15px;
-    background-color: #ffffff;
   }
 
   .index-body .gallery__one {
@@ -2024,9 +1868,8 @@ h3.popup__title {
     margin-bottom: 7vmax;
   }
 
-  .gallery__img-inner {
-    height: 80%;
-    width: 75%;
+  .gallery {
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   .gallery__two .gallery__item:nth-child(2n) .gallery__img {
@@ -2056,3 +1899,5 @@ h3.popup__title {
     width: 50vw;
   }
 }
+
+.webp .index-body::after { background-image: url(../img/bg.webp); }

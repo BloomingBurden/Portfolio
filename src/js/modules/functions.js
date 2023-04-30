@@ -41,7 +41,7 @@ const clickMenu = () => {
             menu.classList.add('menu--closed');
         } else if (menu.classList.contains('menu--closed')) {
             button.textContent = 'Закрыть';
-            button.style.background = 'blue';
+            button.style.background = '#5918df';
             if (!!preview) preview.style.top = '-60vh';
             wrapper.style.top = '-60vh';
             menu.classList.remove('menu--closed');
