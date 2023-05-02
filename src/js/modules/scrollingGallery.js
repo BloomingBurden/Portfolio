@@ -9,7 +9,7 @@ const onScrollWindow = () => {
 const intervalScroll = () => {
     if (window.innerWidth >= 1050) {
         setInterval(() => {
-            if (document.body.classList.contains('stop-scrolling') || stopScrolling) return;
+            if (document.body.classList.contains('stop-scrolling') || stopScrolling || document.body.classList.contains('works-page')) return;
             
             onScrollWindow();
         }, 30)

@@ -4,12 +4,15 @@ $tableW: 768px;
 $tableDesktopW: 1050px;
 $desktopW: 1440px;
 $viewportD: 1440;
+$index: calc(1vw + 1vh);
+
 
 //color
 $color-second: #5918df;
 $color-beige: #F2EFE6;
-$dark-color: #181818;
+$dark-color: #070707;
 $color-dark-orange: #C38133;
+$accent-bg: linear-gradient(-180deg,#1a1527,#0e0c16 88%,#0e0c16 99%);
 
 // Base variable
 $accent: #000000;

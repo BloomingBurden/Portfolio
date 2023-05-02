@@ -25,7 +25,6 @@ const clickMenu = () => {
     const button = document.querySelector('.menu__button');
     const menu = document.querySelector('.menu');
     const wrapper = document.querySelector('.wrapper');
-    const preview = document.querySelector('.preview');
 
     button.addEventListener('click', (evt) => {
         const target = evt.target.closest('.menu__button');
@@ -36,13 +35,11 @@ const clickMenu = () => {
             button.textContent = 'Меню';
             button.removeAttribute('style');
             wrapper.style.top = 0;
-            if (!!preview) preview.style.top = 0;
             menu.classList.remove('menu--opened');
             menu.classList.add('menu--closed');
         } else if (menu.classList.contains('menu--closed')) {
             button.textContent = 'Закрыть';
             button.style.background = '#5918df';
-            if (!!preview) preview.style.top = '-60vh';
             wrapper.style.top = '-60vh';
             menu.classList.remove('menu--closed');
             menu.classList.add('menu--opened');

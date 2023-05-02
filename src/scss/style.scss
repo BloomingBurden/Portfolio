@@ -1,5 +1,7 @@
 @import '~normalize.css/normalize';
 
+@import 'modules/swiper-bundle.min';
+
 @import 'base/variable';
 
 @import 'config/mixins';
@@ -18,7 +20,7 @@
 
 @import 'blocks/menu';
 
-@import 'blocks/works';
+@import 'blocks/slider';
 
 @import 'blocks/popup';
 

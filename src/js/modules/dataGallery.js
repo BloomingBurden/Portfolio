@@ -89,4 +89,13 @@ export const dataGallery = {
         video: '',
         poster: 'port-video'
     },
+    'lawyer': {
+        title: 'Lawyer',
+        images: ['laywer-m', 'laywer-d', 'laywer@2x'],
+        descr: 'Lawyer - многостраничный сайт для адвоката. Сайт построен без фреймворков и библиотек. Сетка на flexbox и grid. Подключил swiper для карусели и yandex карту, остальной функционал написан руками.',
+        text: ['HTML - SCSS - JS - GULP - MASK - SWIPER - POPUP - YANDEX.MAP', '8/10'],
+        site: '#',
+        video: '',
+        poster: 'lawyer-video'
+    },
 };

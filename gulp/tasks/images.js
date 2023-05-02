@@ -6,7 +6,7 @@ export function images() {
         .pipe(app.plugins.newer(app.path.build.images))
         .pipe(imagemin([
             imageminWebp({
-                quality: 70
+                quality: 85
             })
         ]))
         .pipe(app.plugins.rename({ extname: '.webp' }))
@@ -17,7 +17,7 @@ export function images() {
             progressive: true,
             svgoPlugins: [{ removeVievBox: false }],
             interlaced: true,
-            optimizationLevel: 3 // from 0 to 7
+            optimizationLevel: 5 // from 0 to 7
         }))
         .pipe(app.gulp.dest(app.path.build.images))
         .pipe(app.gulp.src(app.path.src.svg))

@@ -36,6 +36,7 @@ body {
   word-break: break-word;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  background-color: $dark-color;
 }
 
 .index-body {
@@ -49,7 +50,6 @@ body {
     bottom: 0;
     height: 100%;
     width: 100%;
-    background-color: $color-beige;
     background-image: url('@img/bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -57,17 +57,15 @@ body {
   }
 }
 
-.works-page {
-  background-color: #ffffff;
-}
-
 .about-page {
   height: 6200px;
   scroll-behavior: smooth;
 }
 
-.contact-page {
-  background-color: #ffffff;
+
+.works-page {
+  overflow: hidden;
+  background-image: $accent-bg;
 }
 
 a {
@@ -130,7 +128,8 @@ body::-webkit-scrollbar {
 }
 
 .index__video {
-  position: fixed;
+  z-index: 0;
+  position: absolute;
   left: 0;
   top: 0;
   right: 0;

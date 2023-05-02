@@ -66,7 +66,7 @@ const basePopup = (data) => {
     return popup;
 };
 
-const gallery = document.querySelector('.gallery');
+const wrapperPopup = document.querySelector('.popup-wrapper');
 
 const closePopup = (element) => {
     element.style.animation = 'popupDown 1.5s ease forwards';
@@ -98,8 +98,8 @@ const renderPopup = (section) => {
 const onClickGallery = (evt) => {
     evt.preventDefault();
 
-    const target = evt.target.closest('.gallery__item');
-
+    const target = evt.target.closest('[data-popup-item]');
+    
     if (!target) return;
 
     const currentData = target.dataset.popupItem;
@@ -112,6 +112,6 @@ const onClickGallery = (evt) => {
     renderPopup(basePopup(dataGallery[currentData]));
 };
 
-if (gallery) {
-    gallery.addEventListener('click', onClickGallery);
+if (wrapperPopup) {
+    wrapperPopup.addEventListener('click', onClickGallery);
 }
