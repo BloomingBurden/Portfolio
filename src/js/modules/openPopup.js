@@ -1,5 +1,6 @@
 import { dataGallery } from './dataGallery.js';
 import { animationScrollEffect } from './moveAnimationEffect.js';
+import { parallaxEffect } from './parallax.js';
 
 const hasVideo = (data, path) => {
     return !!data.video ? `
@@ -51,10 +52,12 @@ const basePopup = (data) => {
                 </div>
             </div>
             <div class="popup__body-img">
-                <picture>
-                    <source type="image/webp" srcset="${PATHS.other + data.images[2]}.webp">
-                    <img src="${PATHS.other + data.images[2]}.jpg" loading="lazy" alt="Фоновое изображение сайта">
-                </picture>
+                <div class="popup__inner-img">
+                    <picture>
+                        <source type="image/webp" srcset="${PATHS.other + data.images[2]}.webp">
+                        <img src="${PATHS.other + data.images[2]}.jpg" loading="lazy" alt="Фоновое изображение сайта">
+                    </picture>
+                </div>
             </div>
         </div>
         <footer class="popup__footer">
@@ -88,6 +91,7 @@ const renderPopup = (section) => {
     const closeBtn = document.querySelector('.popup__close');
 
     animationScrollEffect(tmpDiv);
+    parallaxEffect();
 
     closeBtn.addEventListener('click', () => {
         closePopup(tmpDiv);

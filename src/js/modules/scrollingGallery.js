@@ -18,44 +18,6 @@ const intervalScroll = () => {
 intervalScroll();
 
 
-let firstTempArray = [];
-let secondTempArray = [];
-let galleryChange = false;
-
-const changeColumnGallery = () => {
-    const firstColumn = document.querySelectorAll('.gallery__one');
-    const secondColumn = document.querySelectorAll('.gallery__two');
-
-    if (window.innerWidth < 768) {
-
-        if (galleryChange) return;
-
-        if (firstColumn.length >= 2 || secondColumn.length >= 2) {
-            firstTempArray = Array.from(firstColumn[1].children);
-            secondTempArray = Array.from(secondColumn[1].children);
-
-            firstColumn[1].style.display = 'none';
-            secondColumn[1].style.display = 'none';
-
-            firstColumn[0].append(...firstTempArray);
-            secondColumn[0].append(...secondTempArray);
-            galleryChange = true;
-        }
-    } else {
-        if (!galleryChange) return;
-
-        if (firstColumn[1].children.length === 0 || secondColumn[1].children.length === 0) {
-            firstColumn[1].style.display = 'initial';
-            secondColumn[1].style.display = 'initial';
-            firstColumn[1].append(...firstTempArray);
-            secondColumn[1].append(...secondTempArray);
-            galleryChange = false;
-        }
-    }
-}
-
-changeColumnGallery();
-
 const resetTransform = (data) => {
     data.forEach(item => {
         item.elem.style.transform = `translateY(${0}px) translateZ(0px)`;
@@ -125,7 +87,6 @@ const onScrollGallery = (evt) => {
 };
 
 const resetScroll = () => {
-    changeColumnGallery();
     data = getData();
 }
 

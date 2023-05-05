@@ -6,7 +6,7 @@ if (document.body.classList.contains('works-page')) {
     let currentTarget = document.querySelector('.slider__img');
 
     const sliderRequestAnimation = () => {
-        currentTarget.style.cssText = `transform: perspective(700px) rotateX(${currentY / 15}deg) rotateY(${currentX / 15}deg) scale3d(1.05, 1.05, 1.05)!important;
+        currentTarget.style.cssText = `transform: perspective(700px) rotateX(${-1 * currentY / 13}deg) rotateY(${currentX / 13}deg) scale3d(1.05, 1.05, 1.05)!important;
                                     box-shadow: 0 0 30px 5px rgba(0,0,0,0.5);   
                                     `
 
@@ -22,7 +22,7 @@ if (document.body.classList.contains('works-page')) {
 
         currentTarget = target;
         currentX = evt.pageX - target.getBoundingClientRect().left - target.getBoundingClientRect().width / 2;
-        currentY = evt.pageY - target.getBoundingClientRect().top - target.getBoundingClientRect().width / 2 - 80;
+        currentY = evt.pageY - target.getBoundingClientRect().top - target.getBoundingClientRect().height / 2;
 
     }
 
