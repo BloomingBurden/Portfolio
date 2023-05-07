@@ -2661,11 +2661,6 @@ h3.popup__title {
     height: 40vh;
   }
 
-  .popup__inner-img {
-    top: -15%;
-    height: 120%;
-  }
-
   .about__content--left {
     -webkit-transform: translateX(-55%);
         -ms-transform: translateX(-55%);
@@ -2830,6 +2825,11 @@ h3.popup__title {
 
   .popup__main {
     font-size: calc(0.8rem + 0.5vw);
+  }
+
+  .popup__inner-img {
+    top: -15%;
+    height: 120%;
   }
 
   .about__text {
