@@ -5,7 +5,7 @@ export const parallaxEffect = () => {
     let center = 0;
 
     const requestParallax = () => {
-        item.style.transform = `translateY(${-1 * center / 6}px) translateZ(0)`;
+        item.style.transform = `translateY(${-1 * center / 4}px) translateZ(0)`;
 
         requestAnimationFrame(requestParallax);
     }
