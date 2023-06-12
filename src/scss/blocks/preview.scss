@@ -1,25 +1,3 @@
-@keyframes titleMoveLeft {
-  from {
-    transform: translateX(70%) translateZ(0);
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) translateZ(0);
-  }
-}
-
-@keyframes titleMoveRight {
-  from {
-    transform: translateX(-70%) translateZ(0);
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) translateZ(0);
-  }
-}
-
 .preview {
   min-height: 100vh;
   height: 100%;
@@ -60,7 +38,7 @@
   animation-timing-function: cubic-bezier(.34,.99,.73,1.32);
   
   &:nth-child(1) {
-    animation-delay: 0.5s;
+    animation-delay: 0s;
   }
 
   &:nth-child(2) {

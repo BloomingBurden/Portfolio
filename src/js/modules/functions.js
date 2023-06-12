@@ -14,8 +14,8 @@ const isWebp = () => {
 };
 
 const onLoadWindow = () => {
-    const leftTitle = document.querySelectorAll('.preview__piece--left');
-    const rightTitle = document.querySelectorAll('.preview__piece--right');
+    const leftTitle = document.querySelectorAll('.layer__piece--left');
+    const rightTitle = document.querySelectorAll('.layer__piece--right');
 
     leftTitle.forEach(item => item.style.animationName = 'titleMoveLeft');
     rightTitle.forEach(item => item.style.animationName = 'titleMoveRight');

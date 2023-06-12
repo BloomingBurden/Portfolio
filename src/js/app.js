@@ -1,5 +1,6 @@
 import './modules/swiper-bundle.min.js';
 import './modules/functions.js';
+import './modules/preview.js';
 import './modules/menuCarousel.js';
 import './modules/openPopup.js';
 import './modules/transformScroll.js';

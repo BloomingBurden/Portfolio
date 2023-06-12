@@ -8,6 +8,7 @@ $index: calc(1vw + 1vh);
 
 
 //color
+$dark-bg: #011f1f;
 $color-second: #5918df;
 $color-beige: #F2EFE6;
 $dark-color: #070707;
@@ -26,4 +27,4 @@ $ptSans: 'PT Sans Narrow', sans-serif;
 $montserrat: 'Montserrat', sans-serif;
 $trans: 0.3s ease-in-out;
 
-$scrollTrans: 0.8s cubic-bezier(.075, .5, 0, 1);
+$scrollTrans: 0.8s cubic-bezier(.05, .5, 0, 1);
