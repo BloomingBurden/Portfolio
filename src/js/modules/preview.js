@@ -1,7 +1,8 @@
 if (document.body.classList.contains('index-body')) {
     const previewClose = document.querySelector('.layer__start');
     const previewDocument = document.querySelector('.start');
-
+    const indexWrapper = document.querySelector('.index-body .wrapper');
+    
     const setAnimationOnPreview = () => {
         const leftTitle = document.querySelectorAll('.preview__piece--left');
         const rightTitle = document.querySelectorAll('.preview__piece--right');
@@ -20,7 +21,8 @@ if (document.body.classList.contains('index-body')) {
         evt.preventDefault();
 
         previewDocument.classList.add('start--remove');
-        document.body.style = 'overflow-y: auto';
+        document.body.classList.remove('stop-scrolling');
+        indexWrapper.style.transform = 'translateX(0)';
 
         setTimeout(() => {
             previewDocument.style.display = 'none';

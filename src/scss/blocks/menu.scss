@@ -10,7 +10,7 @@
   background-color: #000000;
   color: #ffffff;
   overflow: hidden;
-  transition: 0.5s ease;
+  transition: $baseTrans;
   touch-action: none;
   user-select: none;
 }

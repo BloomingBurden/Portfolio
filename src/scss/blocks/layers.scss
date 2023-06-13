@@ -156,8 +156,7 @@
 }
 
 .start--remove {
-  opacity: 0;
-  user-select: none;
-  visibility: hidden;
-  transition: 1.5s ease-in-out;
+  will-change: transform;
+  transform: translateX(100%);
+  transition: transform $baseTrans;
 }

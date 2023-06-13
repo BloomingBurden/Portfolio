@@ -4,7 +4,7 @@ export const dataGallery = {
         images: ['letsgo-m', 'letsgo-d', 'travel@2x'],
         descr: 'Landing page - адаптивный/отзывчивый сайт, реализованный на grid и flexbox без тяжелых библиотек и плагинов. Весь функционал написан на чистом JS для оптимизации кода под google pagespeed. Подготовлены специальные изображения для ретины, задействовано современное расширение для изображений .webp.',
         text: ['HTML - SCSS - JS - GULP - Яндекс.карта', '7/10'],
-        site: '#',
+        site: 'http://y90120zv.beget.tech/letsgo/',
         video: 'letsgo-video.mp4',
         poster: ''
     },
@@ -24,7 +24,7 @@ export const dataGallery = {
         text: ['HTML - SCSS - JS - GULP - SWIPER', '5/10'],
         site: '#',
         video: 'taptim-video.mp4',
-        poster: ''
+        poster: 'http://y90120zv.beget.tech/taptim/'
     },
     'alira': {
         title: 'Alira',
@@ -76,7 +76,7 @@ export const dataGallery = {
         images: ['gordium-m', 'gordium-d', 'gordium@2x'],
         descr: 'Gordium - одностраничный сайт трейдинговой компании. Сетка построена на grid и flexbox. Элементы адаптивно-отзывчивые. Задействованы два плагина: swiper и mask, весь остальной функционал написан на чистом JS. Карта мира из SVG графики.',
         text: ['HTML - SCSS - JS - GULP - SWIPER - MASK - POPUP', '6/10'],
-        site: '#',
+        site: 'http://y90120zv.beget.tech/gordium/',
         video: '',
         poster: 'gordium-video'
     },
@@ -94,7 +94,7 @@ export const dataGallery = {
         images: ['laywer-m', 'laywer-d', 'laywer@2x'],
         descr: 'Lawyer - многостраничный сайт для адвоката. Сайт построен без фреймворков и библиотек. Сетка на flexbox и grid. Подключил swiper для карусели и yandex карту, остальной функционал написан руками.',
         text: ['HTML - SCSS - JS - GULP - MASK - SWIPER - POPUP - YANDEX.MAP', '8/10'],
-        site: '#',
+        site: 'http://y90120zv.beget.tech/lawyer/',
         video: '',
         poster: 'lawyer-video'
     },
