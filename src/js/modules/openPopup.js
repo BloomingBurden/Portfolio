@@ -79,11 +79,11 @@ const closePopup = (element) => {
     document.body.removeAttribute('style');
     document.body.classList.remove('stop-scrolling');
     mainWrapper.style.transform = 'translateX(0%)';
+    indexMain.removeAttribute('style');
    
     setTimeout(() => {
         element.remove();
-        indexMain.removeAttribute('style');
-    }, 1600);
+    }, 1000);
 };
 
 const renderPopup = (section) => {
