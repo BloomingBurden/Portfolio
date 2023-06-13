@@ -1,4 +1,13 @@
 export const dataGallery = {
+    'grentis': {
+        title: 'Grentis',
+        images: ['grentis-m', 'grentis-d', 'grentis@2x'],
+        descr: 'Адаптивно-отзывчивый одностраничный сайт Grentis. Много кастомных функций: анимация появления, прогрессбар, фул скрин скроллинг и т.д',
+        text: ['HTML - SCSS - JS - GULP - SWIPER', '8/10'],
+        site: 'http://y90120zv.beget.tech/grentis/',
+        video: '',
+        poster: 'grentis-video'
+    },
     'letsgo': {
         title: 'Letsgo',
         images: ['letsgo-m', 'letsgo-d', 'travel@2x'],
