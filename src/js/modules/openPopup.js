@@ -71,6 +71,7 @@ const basePopup = (data) => {
 
 const wrapperPopup = document.querySelector('.popup-wrapper');
 const mainWrapper = document.querySelector('.wrapper');
+const indexMain = document.querySelector('.index-main');
 
 
 const closePopup = (element) => {
@@ -78,6 +79,7 @@ const closePopup = (element) => {
     document.body.removeAttribute('style');
     document.body.classList.remove('stop-scrolling');
     mainWrapper.style.transform = 'translateX(0%)';
+    indexMain.removeAttribute('style');
    
     setTimeout(() => {
         element.remove();
@@ -91,7 +93,8 @@ const renderPopup = (section) => {
     tmpDiv.innerHTML = section;
     tmpDiv.style.scrollBehavior = 'smooth';
     tmpDiv.classList.add('popup--active');
-    document.body.prepend(tmpDiv);
+    indexMain.prepend(tmpDiv);
+    indexMain.style.overflow = 'hidden';
     mainWrapper.style.transform = 'translateX(100%)';
 
     const closeBtn = document.querySelector('.popup__close');

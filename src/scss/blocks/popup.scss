@@ -30,7 +30,7 @@
   overflow: hidden;
   overflow-y: scroll;
   transform: translateX(-100%);
-  will-change: transform;
+  will-change: left;
 }
 
 .popup--active {

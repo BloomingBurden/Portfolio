@@ -21,7 +21,7 @@ if (document.body.classList.contains('index-body')) {
         evt.preventDefault();
 
         previewDocument.classList.add('start--remove');
-        document.body.classList.remove('stop-scrolling');
+        document.body.classList.remove('no-scrolling');
         indexWrapper.style.transform = 'translateX(0)';
 
         setTimeout(() => {

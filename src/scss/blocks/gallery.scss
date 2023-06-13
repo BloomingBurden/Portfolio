@@ -60,7 +60,7 @@
 .gallery__two,
 .gallery__one {
   flex: 1 1 50%;
-  transition: transform 0.1s cubic-bezier(0.19, 1.53, 0.72, 0.91);
+  transition: transform 0.1s cubic-bezier(.05, .5, 0, 1);
   will-change: transform;
   transform: translateY(0) translateZ(0);
 }
