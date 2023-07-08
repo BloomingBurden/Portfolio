@@ -1,167 +1,165 @@
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
+   box-sizing: border-box;
 }
 
 ::placeholder {
-  color: #666
+   color: #666;
 }
 
 ::selection {
-  background-color: $accent;
+   background-color: $accent;
 }
 
 input,
 textarea {
-  outline: none;
+   outline: none;
 }
 
 html {
-  width: 100%;
-  height: 100%;
-  scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+   width: 100%;
+   height: 100%;
+   scrollbar-width: none; /* For Firefox */
+   -ms-overflow-style: none; /* For Internet Explorer and Edge */
 }
 
 html::-webkit-scrollbar {
-  width: 0px; /* For Chrome, Safari, and Opera */
+   width: 0px; /* For Chrome, Safari, and Opera */
 }
 
 body {
-  min-height: 100%;
-  font-family: $userfont;
-	font-size: $fontsize;
-	line-height: $lineheight;
-	min-width: $mobileW;
+   min-height: 100%;
+   font-family: $userfont;
+   font-size: $fontsize;
+   line-height: $lineheight;
+   min-width: $mobileW;
 
-	color: $textcolor;
-  font-weight: $fontweight;
-	position: relative;
-	overflow-x: hidden;
-  word-break: break-word;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  background-color: $dark-color;
+   color: $textcolor;
+   font-weight: $fontweight;
+   position: relative;
+   overflow-x: hidden;
+   word-break: break-word;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+   background-color: $dark-color;
 }
 
 .index-body {
-  .wrapper {
-    will-change: transform;
-    position: relative;
-    transform: translateX(-100%);
+   .wrapper {
+      will-change: transform;
+      position: relative;
+      transform: translateX(-100%);
 
-    &::after {
-      content: '';
-      z-index: -1;
-      position: fixed;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      height: 100%;
-      width: 100%;
-      background-image: url('@img/bg.jpg');
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
+      &::after {
+         content: "";
+         z-index: -1;
+         position: fixed;
+         left: 0;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         height: 100%;
+         width: 100%;
+         background-image: url("@img/bg.jpg");
+         background-repeat: no-repeat;
+         background-position: center;
+         background-size: cover;
+      }
+   }
 }
 
 .about-page {
-  height: 6200px;
-  scroll-behavior: smooth;
+   height: 6200px;
+   scroll-behavior: smooth;
 }
-
 
 .works-page {
-  overflow: hidden;
-  background-color: $dark-bg;
+   overflow: hidden;
+   background-color: $dark-bg;
 }
 
-
 a {
-  font: inherit;
-  color: inherit;
+   font: inherit;
+   color: inherit;
 }
 
 button {
-  padding: 0;
-  border: none;
-  font: inherit;
-  color: inherit;
+   padding: 0;
+   border: none;
+   font: inherit;
+   color: inherit;
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  vertical-align: top;
+   max-width: 100%;
+   height: auto;
+   vertical-align: top;
 }
 
 ul {
-  margin: 0;
-  padding: 0;
-  list-style: none; 
+   margin: 0;
+   padding: 0;
+   list-style: none;
 }
 
-
 .visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   border: 0;
+   padding: 0;
+   white-space: nowrap;
+   clip-path: inset(100%);
+   clip: rect(0 0 0 0);
+   overflow: hidden;
 }
 
 .wrapper {
-  position: relative;
-  top: 0;
-  transition: $baseTrans;
+   position: relative;
+   top: 0;
+   transition: $baseTrans;
 }
 
 @media (min-width: $tableDesktopW) {
-  .index-body .wrapper {
-    display: flex;
-  }
+   .index-body .wrapper {
+      display: flex;
+   }
 }
 
 @media (min-width: $tableW) {
-  .contact-page .wrapper {
-    display: flex;
-  }
+   .contact-page .wrapper {
+      display: flex;
+   }
 }
 
 body::-webkit-scrollbar {
-  display: none;
+   display: none;
 }
 
 .index__video {
-  z-index: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
+   z-index: 0;
+   position: absolute;
+   left: 0;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   width: 100%;
+   height: 100%;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 
-  video {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
+   video {
+      object-position: 60% 50%;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+   }
 }
 
 .no-scrolling {
-  overflow: hidden;
+   overflow: hidden;
 }

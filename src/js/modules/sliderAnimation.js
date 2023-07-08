@@ -1,33 +1,37 @@
-if (document.body.classList.contains('works-page')) {
-    const wrapper = document.querySelector('.work-inner');
+import { throttling } from "./utils.js";
+
+export const onMouseRotate = (wrap, elem) => {
+    if (window.innerWidth < 768) return;
+    
+    const wrapper = document.querySelector(wrap);
 
     let currentX;
     let currentY;
-    let currentTarget = document.querySelector('.slider__img');
+    let currentTarget = null
 
-    const sliderRequestAnimation = () => {
-        currentTarget.style.cssText = `transform: perspective(700px) rotateX(${-1 * currentY / 13}deg) rotateY(${currentX / 13}deg) scale3d(1.05, 1.05, 1.05)!important;
-                                    box-shadow: 0 0 30px 5px rgba(0,0,0,0.5);   
-                                    `
+    if (!wrapper) return;
 
-        requestAnimationFrame(sliderRequestAnimation);
-    }
-    sliderRequestAnimation()
+    const SCALE = wrapper.dataset.rotateScale ? wrapper.dataset.rotateScale : 1.03;
+    const SPEED = wrapper.dataset.rotateSpeed ? wrapper.dataset.rotateSpeed : 50;
 
     const changeRotateSlider = (evt) => {
-        const target = evt.target.closest('.slider__img');
+        const target = evt.target.closest(elem);
+        
+        if (currentTarget) {
+            currentTarget.style.cssText = `transform: perspective(700px) rotateX(${currentY / SPEED}deg) rotateY(${-currentX / SPEED}deg) scale3d(${SCALE}, ${SCALE}, ${SCALE})!important; box-shadow: 0 0 20px 3px rgba(0,0,0,0.2);`
+        }   
+      
+        if (target !== currentTarget && currentTarget || currentTarget && !target) {
+            currentTarget.style.cssText = `transform: perspective(700px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)!important; box-shadow: 0 0 10px 5px rgba(0,0,0,0);`;
+        }
 
         if (!target) return;
 
-
         currentTarget = target;
-        currentX = evt.pageX - target.getBoundingClientRect().left - target.getBoundingClientRect().width / 2;
-        currentY = evt.pageY - target.getBoundingClientRect().top - target.getBoundingClientRect().height / 2;
-
+        currentX = evt.clientX - target.getBoundingClientRect().left - target.getBoundingClientRect().width / 2;
+        currentY = evt.clientY - target.getBoundingClientRect().top - target.getBoundingClientRect().height / 2;   
     }
 
-    wrapper.addEventListener('mousemove', changeRotateSlider);
-    wrapper.addEventListener('mouseout', () => {
-        document.querySelectorAll('.slider__img').forEach(item => item.style.cssText = `transform: perspective(700px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)!important; box-shadow: 0 0 10px 5px rgba(0,0,0,0);`)
-    });
+    const throttleRotate = throttling(changeRotateSlider, 40);
+    wrapper.addEventListener('mousemove', throttleRotate);
 }

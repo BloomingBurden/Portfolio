@@ -14,12 +14,6 @@ if (document.body.classList.contains('index-body')) {
         }, 1500);
     }
 
-    const isMobile = () => {
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-            removePreview();
-        }
-    }
-        
     const setAnimationOnPreview = () => {
         const leftTitle = document.querySelectorAll('.preview__piece--left');
         const rightTitle = document.querySelectorAll('.preview__piece--right');
@@ -39,6 +33,4 @@ if (document.body.classList.contains('index-body')) {
 
         removePreview();
     });
-
-    isMobile();
 }

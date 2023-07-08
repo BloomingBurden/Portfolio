@@ -4,13 +4,19 @@ import './modules/preview.js';
 import './modules/menuCarousel.js';
 import './modules/openPopup.js';
 import './modules/transformScroll.js';
-import './modules/sliderAnimation.js';
 import { bindSwipers } from './modules/bindSwipers.js';
 import { scrollingGallery } from './modules/scrollingGallery.js';
+import { GoMusic } from './modules/goMusic.js';
+import { onMouseRotate } from './modules/sliderAnimation.js';
+import { onMoveFilter } from './modules/onMoveFilter.js';
 
 
 window.addEventListener('load', () => {
     scrollingGallery();
+    onMouseRotate('.work-inner', '.slider__item');
+    onMoveFilter();
+
+    const audio = new GoMusic('../video/music-silent.mp3');
 
     if (document.body.classList.contains('works-page')) {
         setSlider();
@@ -31,6 +37,3 @@ const setSlider = () => {
 
     bindSwipers(slider1, slider2, slider3, slider4);
 }
-
-
-
