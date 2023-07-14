@@ -1,3 +1,17 @@
+@keyframes moveBg {
+   from {
+      object-position: 80% 50%;
+   }
+
+   50% {
+      object-position: 30% 50%;
+   }
+
+   to {
+      object-position: 80% 50%;
+   }
+}
+
 .preview {
    min-height: 100vh;
    height: 100%;
@@ -6,21 +20,59 @@
 }
 
 .preview__filter {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url('@img/bg.png');
+  mix-blend-mode: color-burn;
+
+  @media (max-width: $tableW) {
+   display: none;
+  }
+}
+
+.preview__rect {
    position: absolute;
-   z-index: 1;
+   z-index: 2;
    left: 0;
    top: 0;
    width: 100%;
    height: 100%;
-   mix-blend-mode: difference; /* Замените на нужный вам режим смешивания */
-   background-color: white; /* Замените на нужный вам цвет */
    pointer-events: none;
+   background-image: url('@img/bg-2.jpg');
+   background-position: 80% center;
+   mix-blend-mode: multiply;
+   transition: 1.2s cubic-bezier(.05, .5, 0, 1);
+
+   @media (max-width: $tableW) {
+      display: none;
+   }
+}
+
+.index__video {
+   mix-blend-mode: normal;
+
+   @media (max-width: $tableW) {
+      filter: brightness(0.5);
+      
+      video {
+         animation: moveBg 180s linear infinite;
+         object-position: 80% 50%;
+         object-fit: cover;
+         width: 100%;
+         height: 100%;
+      }
+   }
 }
 
 .preview__inner {
    padding: 100px 5vw;
    position: relative;
-   z-index: 1;
+   z-index: 5;
    color: #FFFFFF;
 
    @media (min-width: $tableW) {

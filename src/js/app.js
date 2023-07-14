@@ -16,7 +16,7 @@ window.addEventListener('load', () => {
     onMouseRotate('.work-inner', '.slider__item');
     onMoveFilter();
 
-    const audio = new GoMusic('../video/music-silent.mp3');
+    const audio = new GoMusic('./video/music-silent.mp3');
 
     if (document.body.classList.contains('works-page')) {
         setSlider();
