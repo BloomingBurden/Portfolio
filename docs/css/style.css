@@ -1814,6 +1814,8 @@ body::-webkit-scrollbar {
   background-image: url("../img/bg-2.jpg"); }
 
 .preview__rect {
+  -webkit-clip-path: circle(0px at 0 0);
+          clip-path: circle(0px at 0 0);
   position: absolute;
   z-index: 2;
   left: 0;
