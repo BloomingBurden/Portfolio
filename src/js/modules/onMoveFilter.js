@@ -3,6 +3,9 @@ export const onMoveFilter = () => {
 
     var container = document.querySelector('.preview');
     var imageOne = document.querySelector('.preview__rect');
+
+    if (!container) return;
+    
     let currentCircle = 10;
     let mouseX = null;
     let mouseY = null;

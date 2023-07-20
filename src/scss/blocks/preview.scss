@@ -17,6 +17,11 @@
    height: 100%;
    position: relative;
    transition: 0.5s ease;
+
+   @media (max-width: $tableW) {
+      display: flex;
+      align-items: center;
+   }
 }
 
 .preview__filter {
