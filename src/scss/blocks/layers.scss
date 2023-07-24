@@ -1,3 +1,25 @@
+@keyframes titleMoveLeft {
+   from {
+     transform: translateX(70%) translateZ(0);
+     opacity: 0;
+   }
+   to {
+     opacity: 1;
+     transform: translateX(0) translateZ(0);
+   }
+ }
+ 
+ @keyframes titleMoveRight {
+   from {
+     transform: translateX(-70%) translateZ(0);
+     opacity: 0;
+   }
+   to {
+     opacity: 1;
+     transform: translateX(0) translateZ(0);
+   }
+}
+
 @keyframes layer-opacity {
    from {
       opacity: 0;
@@ -65,9 +87,19 @@
 
 .layers-1 {
    transform: translateZ(-55px) scale(1.06);
+   background-image: url('@img/layers/layer-1.jpg');
+
+   @media (max-width: $tableW) {
+      background-image: url('@img/layers/layer-1-m.jpg');
+   }
 }
 .layers-2 {
    transform: translateZ(80px) scale(0.9);
+   background-image: url('@img/layers/layer-2.png');
+   
+   @media (max-width: $tableW) {
+      background-image: url('@img/layers/layer-2-m.png');
+   }
 }
 .layers-3 {
    transform: translateZ(180px) scale(0.8);
@@ -76,10 +108,12 @@
    transform: translateZ(190px) scale(0.8);
 }
 .layers-5 {
+   background-image: url('@img/layers/layer-5.png');
    transform: translateZ(300px) scale(0.9);
 }
 .layers-6 {
    transform: translateZ(380px);
+   background-image: url('@img/layers/layer-6.png');
 }
 
 .layer__content {
@@ -155,10 +189,14 @@
       position: absolute;
       right: 0;
       top: 100%;
-      width: calc(1.5vw + 1.5vh);
+      width: calc(1.3vw + 1.3vh);
       height: 5px;
       background-color: #fff;
       opacity: 0;
+
+      @media (max-width: $tableW) {
+         height: 2px;
+      }
    }
 
    span {
