@@ -1,162 +1,240 @@
-@keyframes titleMoveLeft {
-  from {
-    transform: translateX(70%) translateZ(0);
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) translateZ(0);
-  }
+@keyframes layer-opacity {
+   from {
+      opacity: 0;
+   }
+
+   to {
+      position: relative;
+      opacity: 1;
+   }
 }
 
-@keyframes titleMoveRight {
-  from {
-    transform: translateX(-70%) translateZ(0);
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) translateZ(0);
-  }
+@keyframes layer-opacity-down {
+   from {
+      opacity: 1;
+   }
+   to {
+      opacity: 0;
+      position: absolute;
+      z-index: -1;
+   }
+}
+@keyframes layer-opacity-border {
+   from {
+      opacity: 1;
+   }
+   to {
+      opacity: 0;
+   }
 }
 
 .start {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  background-color: $accent;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   z-index: 9999;
+   background-color: $accent;
 }
 
 .layers {
-  perspective: 1000px;
-  overflow: hidden;
+   perspective: 1000px;
+   overflow: hidden;
 }
 
 .layers__container {
-  height: 100vh;
-  transform-style: preserve-3d;
-  will-change: transform;
-  transition: transform 1.5s cubic-bezier(.05, .5, 0, 1);
+   height: 100vh;
+   transform-style: preserve-3d;
+   will-change: transform;
+   transition: transform 1.5s cubic-bezier(0.05, 0.5, 0, 1);
 }
 
 .layers__item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  left: -5vw;
-  top: -5vw;
-  bottom: -5vw;
-  right: -5vw;
-  background-size: cover;
-  background-position: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: absolute;
+   left: -5vw;
+   top: -5vw;
+   bottom: -5vw;
+   right: -5vw;
+   background-size: cover;
+   background-position: center;
 }
 
 .layers-1 {
-  transform: translateZ(-55px) scale(1.06);
+   transform: translateZ(-55px) scale(1.06);
 }
 .layers-2 {
-  transform: translateZ(80px) scale(0.9);
+   transform: translateZ(80px) scale(0.9);
 }
 .layers-3 {
-  transform: translateZ(180px) scale(0.8);
+   transform: translateZ(180px) scale(0.8);
 }
 .layers-4 {
-  transform: translateZ(190px) scale(0.8);
+   transform: translateZ(190px) scale(0.8);
 }
 .layers-5 {
-  transform: translateZ(300px) scale(0.9);
+   transform: translateZ(300px) scale(0.9);
 }
 .layers-6 {
-  transform: translateZ(380px);
+   transform: translateZ(380px);
 }
 
 .layer__content {
-  text-align: center;
-  overflow: hidden;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 
-  h2 {
-    margin: 0;
-    margin-bottom: 10px;
+   h2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      margin-bottom: 10px;
 
-    font-size: calc($index * 3);
-    font-family: $oswald;
-    text-transform: uppercase;
-    line-height: 1;
-    
-    span {
-      display: block;
-    }
-  }
+      font-size: calc($index * 3);
+      font-family: $oswald;
+      text-transform: uppercase;
+      line-height: 1;
+   }
 }
 
 .layer__text {
-  font-style: italic;
-  font-family: $ptSans;
-  font-size: calc($index * 1.1);
-  margin: 0;
-  margin-bottom: 25px;
+   text-align: center;
+   font-style: italic;
+   font-family: $ptSans;
+   font-size: calc($index * 1.1);
+   margin: 0;
+   margin-bottom: 25px;
 
-  @media (min-width: $tableW) {
-    margin-bottom: 50px;
-    font-size: calc($index * 0.8);
-  }
+   @media (min-width: $tableW) {
+      margin-bottom: 50px;
+      font-size: calc($index * 0.8);
+   }
 }
 
 .layer__start {
-  font-size: 12px;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-family: $oswald;
-  padding: 10px 20px;
-  border-radius: 50px;
-  background-color: transparent;
-  border: 1px solid #ffffff;
-  transition: 0.5s ease-in-out;
+   font-size: 12px;
+   cursor: pointer;
+   text-transform: uppercase;
+   font-family: $oswald;
+   padding: 10px 20px;
+   border-radius: 50px;
+   background-color: transparent;
+   border: 1px solid #ffffff;
+   transition: 0.5s ease-in-out;
 
-  &:hover {
-    background-color: #ffffff;
-    color: $accent;
-  }
+   &:hover {
+      background-color: #ffffff;
+      color: $accent;
+   }
 }
 
-.layers-4, 
+.layers-4,
 .layers-5,
 .layers-6 {
-  pointer-events: none;
-}
-
-.layer__piece {
-  opacity: 0;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
-  animation-timing-function: cubic-bezier(.34,.99,.73,1.32);
-  
-  &:nth-child(1) {
-    animation-delay: 0.2s;
-  }
-
-  &:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  &:nth-child(3) {
-    animation-delay: 0.6s;
-  }
-}
-
-.layer__piece--left {
-  transform: translateX(70%) translateZ(0);
-}
-
-.layer__piece--right {
-  transform: translateX(-70%) translateZ(0);
+   pointer-events: none;
 }
 
 .start--remove {
-  will-change: transform;
-  transform: translateX(100%);
-  transition: transform $baseTrans;
+   will-change: transform;
+   transform: translateX(100%);
+   transition: transform $baseTrans;
+}
+
+.layer__piece-2,
+.layer__piece {
+   display: inline-flex;
+   position: relative;
+
+   &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 100%;
+      width: calc(1.5vw + 1.5vh);
+      height: 5px;
+      background-color: #fff;
+      opacity: 0;
+   }
+
+   span {
+      animation: layer-opacity 0s linear forwards;
+      animation-delay: 0.5s;
+      position: absolute;
+      opacity: 0;
+   }
+}
+
+.layer__piece-2 {
+   &::after {
+      animation: layer-opacity-border 1s linear infinite;
+      animation-delay: 8.1s;
+   }
+
+   span {
+      @for $i from 1 through 20 {
+         &:nth-child(#{$i}) {
+            animation-delay: calc(7s + $i * 0.1s);
+         }
+      }
+   }
+}
+
+.layer__piece {
+   &::after {
+      animation: layer-opacity-border 1s linear infinite;
+      animation-delay: 0.5s;
+   }
+
+   span {
+      &:nth-child(2) {
+         animation-delay: 0.65s;
+      }
+      &:nth-child(3) {
+         animation-delay: 0.8s;
+      }
+      &:nth-child(4) {
+         animation-delay: 0.95s;
+      }
+      &:nth-child(5) {
+         animation-delay: 1.1s, 3.4s;
+         animation-name: layer-opacity, layer-opacity-down;
+         animation-fill-mode: forwards;
+      }
+      &:nth-child(6) {
+         animation-delay: 1.15s, 3.3s;
+         animation-name: layer-opacity, layer-opacity-down;
+         animation-fill-mode: forwards;
+      }
+      &:nth-child(7) {
+         animation-delay: 1.3s, 3.2s;
+         animation-name: layer-opacity, layer-opacity-down;
+         animation-fill-mode: forwards;
+      }
+
+      &:nth-child(8) {
+         animation-delay: 1.45s, 3.1s;
+         animation-name: layer-opacity, layer-opacity-down;
+         animation-fill-mode: forwards;
+      }
+      &:nth-child(9) {
+         animation-delay: 1.6s, 3s;
+         animation-name: layer-opacity, layer-opacity-down;
+         animation-fill-mode: forwards;
+      }
+
+      @for $i from 10 through 20 {
+         &:nth-child(#{$i}) {
+            animation-delay: calc(2s + $i * 0.2s);
+         }
+      }
+   }
+
+   &--gap {
+      margin: 0 10px;
+   }
 }
