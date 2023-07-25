@@ -4,7 +4,7 @@ export const dataGallery = {
         images: ['islas-m', 'islas-d', 'islas@2x'],
         descr: 'Многостраничный адаптивный сайт Islas Canarias. Мягкий скроллинг, два языка, интерактивное переключение вин, бутылок. Оптимизация под все устройства.',
         text: ['HTML - SCSS - JS - GULP', '7/10'],
-        site: 'http://y90120zv.beget.tech/islas/',
+        site: 'https://bloomingburden.github.io/work2/',
         video: '',
         poster: 'islas-video'
     },
@@ -13,7 +13,7 @@ export const dataGallery = {
         images: ['progin-m', 'progin-d', 'progin@2x'],
         descr: 'Сложный многостраничный сайт для Центра программирования Progin. Сайт с тяжелым функционалом: parallax, canvas, filter, transform, tooltip, валидация и т.д. Был реализован кастомный видеоплеер с вомзожностями: bar для тайминга, перемоткой видео, fullscreen, mute. На всем сайте используется строгая валидация для форм, включая покупки. Сайт содержит в себе много интересного функицонала, который можно изучить нажав по ссылке ниже',
         text: ['HTML - SCSS - JS - GULP - SWIPER - MASK - YANDEX.MAP - MIXITUP', '20/10'],
-        site: 'http://y90120zv.beget.tech/progin/',
+        site: 'https://bloomingburden.github.io/project1/',
         video: '',
         poster: 'progin-video'
     },
@@ -22,7 +22,7 @@ export const dataGallery = {
         images: ['pafos-m', 'pafos-d', 'pafos@2x'],
         descr: 'Адаптивный landing page для ресторана Pafos. Средней сложности анимации: parallax, красивое появление элементов, parallax для меню.',
         text: ['HTML - SCSS - JS - GULP - SWIPER - MASK - YANDEX.MAP', '7/10'],
-        site: 'http://y90120zv.beget.tech/pafos/',
+        site: 'https://bloomingburden.github.io/pafos/',
         video: '',
         poster: 'pafos-video'
     },

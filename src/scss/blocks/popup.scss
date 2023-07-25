@@ -1,271 +1,273 @@
 @keyframes popupUp {
-  from {
-    transform:  translateX(-100%);
-  }
+   from {
+      transform: translateX(-100%);
+   }
 
-  to {
-    transform:  translateX(0);
-  }
+   to {
+      transform: translateX(0);
+   }
 }
 
 @keyframes popupDown {
-  from {
-    transform:  translateX(0%);
-  }
+   from {
+      transform: translateX(0%);
+   }
 
-  to {
-    transform:  translateX(-100%);
-  }
+   to {
+      transform: translateX(-100%);
+   }
 }
 
 .popup {
-  width: 100vw;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: fixed;
-  z-index: 40;
-  color: $dark-color; 
-  background: $color-beige;
-  overflow: hidden;
-  overflow-y: scroll;
-  transform: translateX(-100%);
-  will-change: transform;
+   width: 100vw;
+   height: 100%;
+   top: 0;
+   left: 0;
+   position: fixed;
+   z-index: 40;
+   color: $dark-color;
+   background: $color-beige;
+   overflow: hidden;
+   overflow-y: scroll;
+   transform: translateX(-100%);
+   will-change: transform;
 }
 
 .popup--active {
-  animation: popupUp $baseTrans forwards;
+   animation: popupUp $baseTrans forwards;
 }
 
 .popup__header,
 .popup__main,
 .popup__footer {
-  position: relative;
-  width: 100%;
+   position: relative;
+   width: 100%;
 }
 
 .popup__header {
-  height: 100vh;
+   height: 100vh;
 }
 
 .popup__footer {
-  min-height: 100vh;
-  background-color: $color-beige;
+   min-height: 100vh;
+   background-color: $color-beige;
 
-  @media (min-width: $tableW) {
-    min-height: auto;
-  }
+   @media (min-width: $tableW) {
+      min-height: auto;
+   }
 
-  img {
-    display: block;
-    margin: 0 auto;
-  }
+   img {
+      display: block;
+      margin: 0 auto;
+   }
 
-  video {
-    object-fit: contain;
-    height: 100vh;
-    width: 100%;
-    object-position: 50% 50%;
+   video {
+      object-fit: contain;
+      height: 100vh;
+      width: 100%;
+      object-position: 50% 50%;
 
-
-    @media (min-width: $tableW) {
-      height: auto;
-    }
-  }
+      @media (min-width: $tableW) {
+         height: auto;
+      }
+   }
 }
 
 .popup__content {
-  display: flex;
-  flex-direction: column;
-  padding: 60px 25px 150px 25px;
-  min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   padding: 60px 25px 150px 25px;
+   min-height: 100vh;
 
-  @media (min-width: 480px) {
-    width: 70%;
-  }
+   @media (min-width: 480px) {
+      width: 70%;
+   }
 
-  @media (min-width: $tableW) {
-    min-height: auto;
-    padding: 60px 25px 80px 25px;
-  }
-  
-  @media (min-width: 1000px) {
-    width: 50%;
-    flex: 0 0 50%;
-  }
+   @media (min-width: $tableW) {
+      min-height: auto;
+      padding: 60px 25px 80px 25px;
+   }
 
-  @media (min-width: $desktopW) {
-    padding: 5em;
-  }
+   @media (min-width: 1000px) {
+      width: 50%;
+      flex: 0 0 50%;
+   }
+
+   @media (min-width: $desktopW) {
+      padding: 5em;
+   }
 }
 
 .popup__main {
-  font-size: calcFluidFontSize(16, 24, 320, 1440);
-  min-height: 100vh;
+   font-size: calcFluidFontSize(16, 24, 320, 1440);
+   min-height: 100vh;
 
-  @media (min-width: $tableW) {
-    display: flex;
-    flex-direction: column;
-  }
+   @media (min-width: $tableW) {
+      display: flex;
+      flex-direction: column;
+   }
 
-  @media (min-width: 1000px) {
-    flex-direction: row;
-  }
+   @media (min-width: 1000px) {
+      flex-direction: row;
+   }
 
-  @media (min-width: $desktopW) {
-    font-size: calc(0.8rem + 0.5vw);
-  }
+   @media (min-width: $desktopW) {
+      font-size: calc(0.8rem + 0.5vw);
+   }
 }
 
 .popup__title {
-  margin: 0;
-  text-transform: uppercase;
-  font-family: $oswald;
-  font-size: calcFluidFontSize(11, 16, 320, 1440);
-  font-weight: 500;
+   margin: 0;
+   text-transform: uppercase;
+   font-family: $oswald;
+   font-size: calcFluidFontSize(11, 16, 320, 1440);
+   font-weight: 500;
 }
 
 h2.popup__title {
-  margin-bottom: 20px;
+   margin-bottom: 20px;
 }
 
 .popup__body {
-  height: 100vh;
-  width: 100%;
+   height: 100vh;
+   width: 100%;
 }
 .popup__img {
-  height: 100%;
-  width: 100%;
-  flex-shrink: 0;
-  object-fit: cover;
-  object-position: center top;
+   height: 100%;
+   width: 100%;
+   flex-shrink: 0;
+   object-fit: cover;
+   object-position: center top;
 }
 
 .popup__top {
-  margin-bottom: 4em;
+   margin-bottom: 4em;
 
-  @media (min-width: $tableW) {
-    margin-bottom: 2em;
-  }
+   @media (min-width: $tableW) {
+      margin-bottom: 2em;
+   }
 }
 
 .popup__visit {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  font-family: $oswald;
-  font-weight: 500;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: calcFluidFontSize(12, 18, 320, 1440);
+   margin-bottom: 20px;
+   display: flex;
+   align-items: center;
+   font-family: $oswald;
+   font-weight: 500;
+   text-decoration: none;
+   text-transform: uppercase;
+   font-size: calcFluidFontSize(12, 18, 320, 1440);
 
-  &::before {
-    content: '';
-    width: 0;
-    height: 0;
-    background-color: yellow;
-    border-radius: 50%;
-    transition: $trans;
-  }
+   &::before {
+      content: "";
+      width: 0;
+      height: 0;
+      background-color: yellow;
+      border-radius: 50%;
+      transition: $trans;
+   }
 
-  &:hover,
-  &:focus {
-    &::before {
-      margin-right: 5px;
-      width: 0.5em;
-      height: 0.5em;
-    }
-  }
+   &:hover,
+   &:focus {
+      &::before {
+         margin-right: 5px;
+         width: 0.5em;
+         height: 0.5em;
+      }
+   }
 
-  &:active {
-    opacity: 0.7;
-  }
+   &:active {
+      opacity: 0.7;
+   }
 }
 
 .popup__text {
-  margin: 0;
-  
+   margin: 0;
 }
 .popup__bottom {
-  margin-top: auto;
-  font-size: calcFluidFontSize(14, 18, 320, 1440);
+   margin-top: auto;
+   font-size: calcFluidFontSize(14, 18, 320, 1440);
 
-  @media (min-width: $tableW) {
-    display: flex;
-    justify-content: space-between;
-  }
+   @media (min-width: $tableW) {
+      display: flex;
+      justify-content: space-between;
+   }
 
-  .popup__item:first-child {
-    @media (min-width: $tableW) {
-      margin-bottom: 0;
-      margin-right: 20px;
-    }
-  }
+   .popup__item:first-child {
+      @media (min-width: $tableW) {
+         margin-bottom: 0;
+         margin-right: 20px;
+      }
+   }
 
-
-  .popup__item:last-child {
-    font-family: $ptSans;
-    flex-shrink: 0;
-  }
+   .popup__item:last-child {
+      font-family: $ptSans;
+      flex-shrink: 0;
+   }
 }
 
 h3.popup__title {
-  margin-bottom: 10px;
+   margin-bottom: 10px;
 }
 
 .popup__item {
-  margin-bottom: 30px;
+   margin-bottom: 30px;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+   &:last-child {
+      margin-bottom: 0;
+   }
 }
 
 .popup__body-img {
-  position: relative;
-  display: none;
-  overflow: hidden;
+   position: relative;
+   display: none;
+   overflow: hidden;
 
-  @media (min-width: $tableW) {
-    margin-top: auto;
-    width: 100%;
-    display: block;
-    height: 40vh;
-  }
+   @media (min-width: $tableW) {
+      margin-top: auto;
+      width: 100%;
+      display: block;
+      height: 40vh;
+   }
 
-  @media (min-width: 1000px) {
-    height: 100vh;
-    min-height: 100vh;
-    margin: 0;
-  }
+   @media (min-width: 1000px) {
+      height: 100vh;
+      min-height: 100vh;
+      margin: 0;
+   }
 }
 
 .popup__inner-img {
-  position: absolute;
-  top: -30%;
-  will-change: transform;
-  transform: translateY(0) translateZ(0);
-  width: 100%;
-  height: 130%;
+   position: absolute;
+   height: 250%;
+   top: -150%;
+   will-change: transform;
+   transform: translateY(0) translateZ(0);
+   width: 100%;
 
-  @media (min-width: $desktopW) {
-    top: -15%;
-    height: 120%;
-  }
+   @media (min-width: 1000px) {
+      height: 130%;
+      top: -30%;
+   }
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 50%;
-  }
+   @media (min-width: $desktopW) {
+      top: -15%;
+      height: 120%;
+   }
+
+   img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+   }
 }
 
 .popup__addition {
-  margin: 0;
+   margin: 0;
 }
 
 .popup__close {
-  position: sticky;
-  z-index: 45;
+   position: sticky;
+   z-index: 45;
 }
