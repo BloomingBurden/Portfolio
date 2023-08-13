@@ -2,25 +2,12 @@ import { dataGallery } from './dataGallery.js';
 import { animationScrollEffect } from './moveAnimationEffect.js';
 import { parallaxEffect } from './parallax.js';
 
-const hasVideo = (data, path) => {
-    return !!data.video ? `
-        <video src="${path.video + data.video}" loop="true" muted="" autoplay="" arial-label="Видео"></video>` : 
-        `<picture>
-            <source media="(min-width: 768px)" type="image/webp" srcset="${path.img + data.poster}-d.webp">
-            <source media="(min-width: 768px)" srcset="${path.img + data.poster}-d.jpg">
-            <source type="image/webp" srcset="${path.img + data.poster}-m.webp">
-            <img src="${path.img + data.poster}-m.jpg" alt="Фоновое изображение loading="lazy" ${data.title}">
-        </picture>`
-};
-
 const basePopup = (data) => {
     const PATHS = {
         img: './img/popup/',
         video: './video/popup/',
         other: './img/popup/popup-bg/',
     };
-
-    const options = hasVideo(data, PATHS);
 
     const popup = `
         <header class="popup__header">
@@ -61,7 +48,7 @@ const basePopup = (data) => {
             </div>
         </div>
         <footer class="popup__footer">
-            ${options}
+            <iframe src="${data.site}" frameborder="0"></iframe>
         </footer>
         <button class="popup__close">Закрыть</button>
     `;

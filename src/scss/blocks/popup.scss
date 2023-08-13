@@ -49,27 +49,27 @@
 }
 
 .popup__footer {
-   min-height: 100vh;
-   background-color: $color-beige;
+  position: relative;
+  min-height: 100vh;
+  transform: scale(0.7);
+  display: flex;
+  background-color: $color-beige;
 
-   @media (min-width: $tableW) {
-      min-height: auto;
-   }
+   iframe {
+    left: -10%;
+    top: 0;
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    border: 4px solid #000;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px 3px rgba(0,0,0,0.4);
 
-   img {
-      display: block;
-      margin: 0 auto;
-   }
-
-   video {
-      object-fit: contain;
-      height: 100vh;
+    @media (min-width: 1000px) {
       width: 100%;
-      object-position: 50% 50%;
-
-      @media (min-width: $tableW) {
-         height: auto;
-      }
+      left: 0;
+      height: 120%;
+    }
    }
 }
 

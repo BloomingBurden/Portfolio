@@ -17,15 +17,6 @@ export const dataGallery = {
         video: '',
         poster: 'progin-video'
     },
-    'pafos': {
-        title: 'Pafos',
-        images: ['pafos-m', 'pafos-d', 'pafos@2x'],
-        descr: 'Адаптивный landing page для ресторана Pafos. Средней сложности анимации: parallax, красивое появление элементов, parallax для меню.',
-        text: ['HTML - SCSS - JS - GULP - SWIPER - MASK - YANDEX.MAP', '7/10'],
-        site: 'https://bloomingburden.github.io/pafos/',
-        video: '',
-        poster: 'pafos-video'
-    },
     'grentis': {
         title: 'Grentis',
         images: ['grentis-m', 'grentis-d', 'grentis@2x'],
